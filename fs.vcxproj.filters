@@ -29,5 +29,8 @@
     <ClInclude Include="sqlite3.h">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="factory.h">
+      <Filter>source</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
