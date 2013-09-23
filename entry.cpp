@@ -1,14 +1,6 @@
-#include "header.h"
+#include "class.h"
 
-static void DbgPrint(LPCWSTR format, ...)
-{
-  WCHAR buffer[512];
-  va_list argp;
-  va_start(argp, format);
-  vswprintf_s(buffer, sizeof(buffer)/sizeof(WCHAR), format, argp);
-  va_end(argp);
-  OutputDebugStringW(buffer);
-}
+static fs *obj = new fs;
 
 int DOKAN_CALLBACK _CreateFile (
     LPCWSTR filename,      // FileName
@@ -18,14 +10,14 @@ int DOKAN_CALLBACK _CreateFile (
     DWORD flags,        // FlagsAndAttributes
     PDOKAN_FILE_INFO info )
 {
-  return ERROR_NOT_READY * -1;
+  return obj->CreateFile(filename, access, share, pos, flags, *info);
 }
 
 int DOKAN_CALLBACK _OpenDirectory (
-  LPCWSTR,        // FileName
-  PDOKAN_FILE_INFO)
+  LPCWSTR filename,        // FileName
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return obj->OpenDirectory(filename, *info);
 }
 
 int (DOKAN_CALLBACK _CreateDirectory) (
@@ -37,17 +29,17 @@ int (DOKAN_CALLBACK _CreateDirectory) (
 
 // When FileInfo->DeleteOnClose is true, you must delete the file in Cleanup.
 int (DOKAN_CALLBACK _Cleanup) (
-  LPCWSTR,      // FileName
-  PDOKAN_FILE_INFO)
+  LPCWSTR name,      // FileName
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return obj->Cleanup(name, *info);
 }
 
 int (DOKAN_CALLBACK _CloseFile) (
-  LPCWSTR,      // FileName
-  PDOKAN_FILE_INFO)
+  LPCWSTR name,      // FileName
+  PDOKAN_FILE_INFO info )
 {
-  return ERROR_NOT_READY * -1;
+  return obj->CloseFile(name, *info);
 }
 
 int (DOKAN_CALLBACK _ReadFile) (
@@ -82,19 +74,19 @@ int (DOKAN_CALLBACK _FlushFileBuffers) (
 
 
 int (DOKAN_CALLBACK _GetFileInformation) (
-  LPCWSTR,          // FileName
-  LPBY_HANDLE_FILE_INFORMATION, // Buffer
-  PDOKAN_FILE_INFO)
+  LPCWSTR name,          // FileName
+  LPBY_HANDLE_FILE_INFORMATION buffer, // Buffer
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return obj->GetFileInformation(name, buffer, *info);
 }
 
 int (DOKAN_CALLBACK _FindFiles) (
-  LPCWSTR,      // PathName
-  PFillFindData,    // call this function with PWIN32_FIND_DATAW
-  PDOKAN_FILE_INFO)  //  (see PFillFindData definition)
+  LPCWSTR name,      // PathName
+  PFillFindData data,    // call this function with PWIN32_FIND_DATAW
+  PDOKAN_FILE_INFO info )  //  (see PFillFindData definition)
 {
-  return ERROR_NOT_READY * -1;
+  return obj->FindFiles(name, data, *info);
 }
 
 
@@ -218,16 +210,27 @@ int (DOKAN_CALLBACK _GetDiskFreeSpace) (
 
 // see Win32 API GetVolumeInformation
 int (DOKAN_CALLBACK _GetVolumeInformation) (
-  LPWSTR, // VolumeNameBuffer
-  DWORD,  // VolumeNameSize in num of chars
-  LPDWORD,// VolumeSerialNumber
-  LPDWORD,// MaximumComponentLength in num of chars
-  LPDWORD,// FileSystemFlags
-  LPWSTR,  // FileSystemNameBuffer
-  DWORD,  // FileSystemNameSize in num of chars
-  PDOKAN_FILE_INFO)
+  LPWSTR name, // VolumeNameBuffer
+  DWORD cname,  // VolumeNameSize in num of chars
+  LPDWORD serial,// VolumeSerialNumber
+  LPDWORD component,// MaximumComponentLength in num of chars
+  LPDWORD flags,// FileSystemFlags
+  LPWSTR fsb,  // FileSystemNameBuffer
+  DWORD cfsb,  // FileSystemNameSize in num of chars
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  WCHAR *t = new WCHAR[cname + 1];
+  memcpy(t, name, cname);
+  t[cname] = 0;
+  std::wstring str_name = t;
+  delete []t;
+  t = new WCHAR[cfsb + 1];
+  memcpy(t, fsb, cfsb);
+  t[cfsb] = 0;
+  std::wstring str_sfb = t;
+  delete []t;
+
+  return obj->GetVolumeInformation(str_name, *serial, *component, *flags, str_sfb, *info);
 }
 
 

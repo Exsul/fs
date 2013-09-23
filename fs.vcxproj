@@ -89,6 +89,7 @@
     <ClInclude Include="header.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="class.cpp" />
     <ClCompile Include="entry.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

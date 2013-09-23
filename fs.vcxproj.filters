@@ -12,6 +12,9 @@
     <ClCompile Include="entry.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="class.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
