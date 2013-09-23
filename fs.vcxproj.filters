@@ -17,5 +17,8 @@
     <ClInclude Include="header.h">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="class.h">
+      <Filter>source</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

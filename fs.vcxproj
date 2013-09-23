@@ -85,6 +85,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="class.h" />
     <ClInclude Include="header.h" />
   </ItemGroup>
   <ItemGroup>
