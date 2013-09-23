@@ -87,11 +87,13 @@
   <ItemGroup>
     <ClInclude Include="class.h" />
     <ClInclude Include="header.h" />
+    <ClInclude Include="sqlite3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="class.cpp" />
     <ClCompile Include="entry.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sqlite3.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

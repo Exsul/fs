@@ -22,3 +22,6 @@
 ipch/*
 build/*
 intermediate/*
+
+#sqllite
+*.dblite
