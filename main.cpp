@@ -1,4 +1,4 @@
-#include "header.h"
+#include "factory.h"
 
 
 //static WCHAR RootDirectory[MAX_PATH] = L"C:";
@@ -6,9 +6,11 @@ static WCHAR MountPoint[MAX_PATH] = L"M:";
 
 void InitMethods( PDOKAN_OPERATIONS );
 
+static factory *handlers;
 
 void main()
 {
+  handlers = new factory();
   PDOKAN_OPERATIONS oper = new DOKAN_OPERATIONS;
   PDOKAN_OPTIONS opt = new DOKAN_OPTIONS;
 
@@ -51,4 +53,5 @@ void main()
 	  break;
   }
   fflush(stderr);
+  delete handlers;
 }
