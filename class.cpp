@@ -30,6 +30,9 @@ int fs::OpenDirectory( std::wstring filename, DOKAN_FILE_INFO &dokan_info )
 int fs::FindFiles( std::wstring filename, PFillFindData func, DOKAN_FILE_INFO &dokan_info )
 {
   DbgPrint(L"FindFiles %s\n", filename.c_str());
+  WIN32_FIND_DATAW data;
+  wcscpy(data.cFileName, L"README.txt");
+  func(&data, &dokan_info);
   return 0;
 }
 
