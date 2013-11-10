@@ -43,11 +43,17 @@
     <OutDir>$(SolutionDir)..\build\$(SolutionName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(SolutionName)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>$(SolutionName)_$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>$(SolutionDir)/AX/source;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(OutDir);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <SourcePath>$(SolutionDir)/AX/source;$(VC_SourcePath);</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)..\build\$(SolutionName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(SolutionName)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>$(SolutionName)_$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>$(SolutionDir)/AX/source;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(OutDir);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <SourcePath>$(SolutionDir)/AX/source;$(VC_SourcePath);</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -99,6 +105,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vfs.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AX\source\AX.vcxproj">
+      <Project>{792c27e3-863b-434c-a47a-f5f0515bfb20}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

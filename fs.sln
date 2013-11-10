@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fs", "fs.vcxproj", "{117559
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vfs", "vfs\vfs.vcxproj", "{90902C8D-2F56-4ED6-AA53-67B20534AC2A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AX", "AX\source\AX.vcxproj", "{792C27E3-863B-434C-A47A-F5F0515BFB20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,10 @@ Global
 		{90902C8D-2F56-4ED6-AA53-67B20534AC2A}.Debug|Win32.Build.0 = Debug|Win32
 		{90902C8D-2F56-4ED6-AA53-67B20534AC2A}.Release|Win32.ActiveCfg = Release|Win32
 		{90902C8D-2F56-4ED6-AA53-67B20534AC2A}.Release|Win32.Build.0 = Release|Win32
+		{792C27E3-863B-434C-A47A-F5F0515BFB20}.Debug|Win32.ActiveCfg = Debug|Win32
+		{792C27E3-863B-434C-A47A-F5F0515BFB20}.Debug|Win32.Build.0 = Debug|Win32
+		{792C27E3-863B-434C-A47A-F5F0515BFB20}.Release|Win32.ActiveCfg = Release|Win32
+		{792C27E3-863B-434C-A47A-F5F0515BFB20}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
