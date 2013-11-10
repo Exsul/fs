@@ -38,3 +38,30 @@ dword cached_file_handler_impl::Offset() const
 {
   return offset;
 }
+
+dword cached_file_handler_impl::Offset(const dword _offset)
+{
+  if (offset != _offset)
+    fseek(F, _offset, SEEK_SET);
+  offset = _offset;
+  return Offset();
+}
+
+std::vector<ub> cached_file_handler_impl::Read(const word amount)
+{
+  std::vector<ub> ret;
+  ret.resize(amount, 0);
+  usst readed = fread(&ret[0], sizeof(ub), amount, F);
+  throw_assert(readed <= amount);
+  if (readed != amount)
+    ret.resize(readed);
+  ret.shrink_to_fit();
+  return ret;
+}
+
+word cached_file_handler_impl::Write(const std::vector<ub> &data)
+{
+  usst writed = fwrite(&data[0], sizeof(ub), data.size(), F);
+  return writed;
+}
+
