@@ -5,3 +5,6 @@
 
 using namespace std;
 using ax::convert;
+
+#define MEMLEAK
+#define REFACTOR

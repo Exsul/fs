@@ -12,6 +12,7 @@ public:
   virtual vector<byte> Read(word amount, dword offset = 0) = 0;
   virtual word Write(vector<byte> data, dword offset = 0) = 0;
   virtual void Flush() = 0;
+  virtual void Cleanup() = 0;
 
 /*/
   int GetFileInformation(std::wstring filename, LPBY_HANDLE_FILE_INFORMATION buffer, DOKAN_FILE_INFO &dokan_info);

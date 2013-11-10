@@ -5,6 +5,8 @@ struct cached_file_handler : public file_handler
 {
   std::wstring cache_filename_location;
 
+  //*/ cached_file_handler(const wstring &mapped_filename, const wstring &cache_filename);
+  cached_file_handler(const wstring &cache_filename);
   cached_file_handler(const file_handler &);
   cached_file_handler(const cached_file_handler &);
 
