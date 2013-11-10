@@ -1,3 +1,5 @@
+#include <vector>
+
 struct access_rights
 {
   enum ACCESS_RIGHTS
@@ -6,4 +8,8 @@ struct access_rights
     WRITE = 2,
     DELETE = 4
   };
+
+  vector<ACCESS_RIGHTS> rights;
+
+  bool Enabled(ACCESS_RIGHTS) const;
 };

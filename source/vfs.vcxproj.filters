@@ -7,6 +7,15 @@
     <Filter Include="directory">
       <UniqueIdentifier>{0d6dc2a2-1906-4843-b4e6-946c4c78095b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="file\src">
+      <UniqueIdentifier>{53d84d43-90f5-4e70-a71f-66714c838d90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="file\cached_file">
+      <UniqueIdentifier>{a07f29a9-0b9a-4678-a257-22394fa289aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="file\cached_file\src">
+      <UniqueIdentifier>{4610adc2-8540-46b9-b296-12f0bf2ff54b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vfs\directory\directory.h">
@@ -40,8 +49,29 @@
     <ClInclude Include="vfs\std_importer.h" />
     <ClInclude Include="vfs\stdafx.h" />
     <ClInclude Include="vfs\vfs.h" />
+    <ClInclude Include="vfs\file\cached\cached_file.h">
+      <Filter>file\cached_file</Filter>
+    </ClInclude>
+    <ClInclude Include="vfs\file\cached\cached_file_handler.h">
+      <Filter>file\cached_file</Filter>
+    </ClInclude>
+    <ClInclude Include="vfs\file\cached\cached_file_handler_impl.h">
+      <Filter>file\cached_file</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vfs\vfs.cpp" />
+    <ClCompile Include="vfs\file\file.cpp">
+      <Filter>file\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vfs\file\cached\cached_file.cpp">
+      <Filter>file\cached_file\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vfs\file\cached\cached_file_handler.cpp">
+      <Filter>file\cached_file\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vfs\file\cached\cached_file_handler_impl.cpp">
+      <Filter>file\cached_file\src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
