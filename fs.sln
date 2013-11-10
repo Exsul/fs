@@ -5,9 +5,9 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fs", "fs.vcxproj", "{1175597B-B892-4D45-AC22-43CB069DC1B3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vfs", "vfs\vfs.vcxproj", "{90902C8D-2F56-4ED6-AA53-67B20534AC2A}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AX", "AX\source\AX.vcxproj", "{792C27E3-863B-434C-A47A-F5F0515BFB20}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vfs", "source\vfs.vcxproj", "{90902C8D-2F56-4ED6-AA53-67B20534AC2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{1175597B-B892-4D45-AC22-43CB069DC1B3}.Debug|Win32.Build.0 = Debug|Win32
 		{1175597B-B892-4D45-AC22-43CB069DC1B3}.Release|Win32.ActiveCfg = Release|Win32
 		{1175597B-B892-4D45-AC22-43CB069DC1B3}.Release|Win32.Build.0 = Release|Win32
-		{90902C8D-2F56-4ED6-AA53-67B20534AC2A}.Debug|Win32.ActiveCfg = Debug|Win32
-		{90902C8D-2F56-4ED6-AA53-67B20534AC2A}.Debug|Win32.Build.0 = Debug|Win32
-		{90902C8D-2F56-4ED6-AA53-67B20534AC2A}.Release|Win32.ActiveCfg = Release|Win32
-		{90902C8D-2F56-4ED6-AA53-67B20534AC2A}.Release|Win32.Build.0 = Release|Win32
 		{792C27E3-863B-434C-A47A-F5F0515BFB20}.Debug|Win32.ActiveCfg = Debug|Win32
 		{792C27E3-863B-434C-A47A-F5F0515BFB20}.Debug|Win32.Build.0 = Debug|Win32
 		{792C27E3-863B-434C-A47A-F5F0515BFB20}.Release|Win32.ActiveCfg = Release|Win32
 		{792C27E3-863B-434C-A47A-F5F0515BFB20}.Release|Win32.Build.0 = Release|Win32
+		{90902C8D-2F56-4ED6-AA53-67B20534AC2A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{90902C8D-2F56-4ED6-AA53-67B20534AC2A}.Debug|Win32.Build.0 = Debug|Win32
+		{90902C8D-2F56-4ED6-AA53-67B20534AC2A}.Release|Win32.ActiveCfg = Release|Win32
+		{90902C8D-2F56-4ED6-AA53-67B20534AC2A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

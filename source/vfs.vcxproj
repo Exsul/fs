@@ -86,30 +86,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="access_rights.h" />
-    <ClInclude Include="attributes.h" />
-    <ClInclude Include="create_disposition.h" />
-    <ClInclude Include="directory.h" />
-    <ClInclude Include="directory_handler.h" />
-    <ClInclude Include="file.h" />
-    <ClInclude Include="file_handler.h" />
-    <ClInclude Include="flags.h" />
-    <ClInclude Include="header.h" />
-    <ClInclude Include="share_mode.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="std_importer.h" />
-    <ClInclude Include="vfs.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="vfs.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\AX\source\AX.vcxproj">
       <Project>{792c27e3-863b-434c-a47a-f5f0515bfb20}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="vfs\directory\directory.h" />
+    <ClInclude Include="vfs\directory\directory_handler.h" />
+    <ClInclude Include="vfs\file\access_rights.h" />
+    <ClInclude Include="vfs\file\attributes.h" />
+    <ClInclude Include="vfs\file\create_disposition.h" />
+    <ClInclude Include="vfs\file\file.h" />
+    <ClInclude Include="vfs\file\file_handler.h" />
+    <ClInclude Include="vfs\file\flags.h" />
+    <ClInclude Include="vfs\file\share_mode.h" />
+    <ClInclude Include="vfs\header.h" />
+    <ClInclude Include="vfs\stdafx.h" />
+    <ClInclude Include="vfs\std_importer.h" />
+    <ClInclude Include="vfs\vfs.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="vfs\vfs.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
