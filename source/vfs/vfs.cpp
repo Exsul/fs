@@ -37,3 +37,22 @@ file_handler &vfs::OpenFile(wstring filename)
   cached_file_handler *ret = MEMLEAK NEW cached_file_handler(actual_mapped_file);
   return *ret;
 }
+
+directory_handler &vfs::OpenDirectory(wstring dirname)
+{ REFACTOR
+  return CreateDirectory(dirname);
+}
+
+directory_handler &vfs::CreateDirectory(wstring dirname)
+{
+  directory_handler *res = MEMLEAK NEW directory_handler(dirname);
+  return *res;
+}
+
+void vfs::GetDiscSpace(dword &avaible, dword &total, dword &free)
+{
+  const dword drive_size = 2 REQUIRE_CPP11 REFACTOR GB;
+  total = drive_size;
+  avaible = drive_size;
+  free = drive_size;
+}

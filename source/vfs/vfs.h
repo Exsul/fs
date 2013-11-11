@@ -16,8 +16,8 @@ public:
   file_handler &CreateFile(wstring filename);
   file_handler &OpenFile(wstring filename);
 
-  directory_handler OpenDirectory(wstring dirname);
-  directory_handler CreateDirectory(wstring dirname);
+  directory_handler &OpenDirectory(wstring dirname);
+  directory_handler &CreateDirectory(wstring dirname);
 
   void GetDiscSpace(dword &avaible, dword &total, dword &free);
 /*/
