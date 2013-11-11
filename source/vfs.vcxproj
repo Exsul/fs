@@ -92,6 +92,7 @@
   <ItemGroup>
     <ClInclude Include="vfs\directory\directory.h" />
     <ClInclude Include="vfs\directory\directory_handler.h" />
+    <ClInclude Include="vfs\directory\file_find_data.h" />
     <ClInclude Include="vfs\file\access_rights.h" />
     <ClInclude Include="vfs\file\attributes.h" />
     <ClInclude Include="vfs\file\cached\cached_file.h" />

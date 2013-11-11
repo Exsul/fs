@@ -58,6 +58,9 @@
     <ClInclude Include="vfs\file\cached\cached_file_handler_impl.h">
       <Filter>file\cached_file</Filter>
     </ClInclude>
+    <ClInclude Include="vfs\directory\file_find_data.h">
+      <Filter>directory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vfs\vfs.cpp" />
