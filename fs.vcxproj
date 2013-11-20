@@ -44,14 +44,22 @@
     <OutDir>$(SolutionDir)..\build\$(SolutionName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(SolutionName)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>$(SolutionName)_$(ProjectName)_$(Configuration)</TargetName>
-    <IncludePath>C:\Program Files (x86)\Dokan\DokanLibrary;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
-    <LibraryPath>C:\Program Files (x86)\Dokan\DokanLibrary;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+    <IncludePath>C:\Program Files (x86)\Dokan\DokanLibrary;$(ProgramFiles)\Windows Kits\8.0\Include\um;$(ProgramFiles)\Windows Kits\8.0\Include\shared;$(SolutionDir)/AX/source;$(VC_IncludePath);</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Dokan\DokanLibrary;$(ProgramFiles)\Windows Kits\8.0\lib\win8\um\x86;$(OutDir);$(VC_LibraryPath_x86);</LibraryPath>
+    <SourcePath>$(SolutionDir)/AX/source;$(VC_SourcePath);</SourcePath>
+    <ExecutablePath>$(ProgramFiles)\Windows Kits\8.0\bin\x86;$(VC_ExecutablePath_x86);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
+    <ExcludePath>$(ProgramFiles)\Windows Kits\8.0\Include\um;$(ProgramFiles)\Windows Kits\8.0\Include\shared;$(VC_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x86);</ExcludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)..\build\$(SolutionName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(SolutionName)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>$(SolutionName)_$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>C:\Program Files (x86)\Dokan\DokanLibrary;$(ProgramFiles)\Windows Kits\8.0\Include\um;$(ProgramFiles)\Windows Kits\8.0\Include\shared;$(SolutionDir)/AX/source;$(VC_IncludePath);</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Dokan\DokanLibrary;$(ProgramFiles)\Windows Kits\8.0\lib\win8\um\x86;$(OutDir);$(VC_LibraryPath_x86);</LibraryPath>
+    <SourcePath>$(SolutionDir)/AX/source;$(VC_SourcePath);</SourcePath>
+    <ExecutablePath>$(ProgramFiles)\Windows Kits\8.0\bin\x86;$(VC_ExecutablePath_x86);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
+    <ExcludePath>$(ProgramFiles)\Windows Kits\8.0\Include\um;$(ProgramFiles)\Windows Kits\8.0\Include\shared;$(VC_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x86);</ExcludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -61,6 +69,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>SQLITE_THREADSAFE;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ShowIncludes>false</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -97,6 +106,11 @@
     <ClCompile Include="entry.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="sqlite3.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="source\vfs.vcxproj">
+      <Project>{90902c8d-2f56-4ed6-aa53-67b20534ac2a}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
