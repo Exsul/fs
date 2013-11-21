@@ -102,12 +102,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fs\class.cpp" />
+    <ClCompile Include="fs\dokan.cpp" />
     <ClCompile Include="fs\entry.cpp" />
     <ClCompile Include="fs\main.cpp" />
     <ClCompile Include="fs\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fs\class.h" />
+    <ClInclude Include="fs\dokan.h" />
+    <ClInclude Include="fs\dokan_cpp_port.h" />
     <ClInclude Include="fs\factory.h" />
     <ClInclude Include="fs\header.h" />
     <ClInclude Include="fs\sqlite3.h" />

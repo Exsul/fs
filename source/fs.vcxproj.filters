@@ -18,6 +18,9 @@
     <ClCompile Include="fs\sqlite3.c">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="fs\dokan.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fs\class.h">
@@ -30,6 +33,12 @@
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="fs\sqlite3.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="fs\dokan.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="fs\dokan_cpp_port.h">
       <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>

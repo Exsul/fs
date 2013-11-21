@@ -1,0 +1,14 @@
+#ifndef _FS_DOKAN_CPP_PORT_H_
+#define _FS_DOKAN_CPP_PORT_H_
+
+#include <dokan.h>
+
+#undef DOKAN_SUCCESS
+#undef DOKAN_ERROR
+#undef DOKAN_DRIVE_LETTER_ERROR
+#undef DOKAN_DRIVER_INSTALL_ERROR
+#undef DOKAN_START_ERROR
+#undef DOKAN_MOUNT_ERROR
+#undef DOKAN_MOUNT_POINT_ERROR
+
+#endif
