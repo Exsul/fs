@@ -6,9 +6,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="fs\class.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="fs\entry.cpp">
       <Filter>source</Filter>
     </ClCompile>
@@ -21,11 +18,11 @@
     <ClCompile Include="fs\dokan.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="fs\dokan_proxy.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="fs\class.h">
-      <Filter>source</Filter>
-    </ClInclude>
     <ClInclude Include="fs\factory.h">
       <Filter>source</Filter>
     </ClInclude>
@@ -39,6 +36,9 @@
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="fs\dokan_cpp_port.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="fs\dokan_proxy.h">
       <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>

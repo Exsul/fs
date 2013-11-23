@@ -5,3 +5,4 @@ using ax::convert;
 #define MEMLEAK
 #define REFACTOR
 #define MAYBEWRONG
+#define BEW MAYBEWRONG

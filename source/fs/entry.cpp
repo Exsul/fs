@@ -1,6 +1,19 @@
-#include "class.h"
+#include "dokan_proxy.h"
 
-static fs *obj = new fs;
+namespace
+{
+  dokan_proxy &ExtractProxy(const PDOKAN_FILE_INFO info)
+  {
+    throw_assert(info);
+    const PDOKAN_OPTIONS opt = info->DokanOptions;
+    throw_assert(opt);
+    const ULONG64 obj = opt->GlobalContext;
+    throw_assert(obj);
+    dokan_proxy *const ret = reinterpret_cast<dokan_proxy *>(obj);
+    throw_assert(ret); // unnesesary
+    return *ret;
+  }
+};
 
 int DOKAN_CALLBACK _CreateFile (
     LPCWSTR filename,      // FileName
@@ -10,14 +23,14 @@ int DOKAN_CALLBACK _CreateFile (
     DWORD flags,        // FlagsAndAttributes
     PDOKAN_FILE_INFO info )
 {
-  return obj->CreateFile(filename, access, share, pos, flags, *info);
+  return ExtractProxy(info).CreateFile(filename, access, share, pos, flags, *info);
 }
 
 int DOKAN_CALLBACK _OpenDirectory (
   LPCWSTR filename,        // FileName
   PDOKAN_FILE_INFO info)
 {
-  return obj->OpenDirectory(filename, *info);
+  return ExtractProxy(info).OpenDirectory(filename, *info);
 }
 
 int (DOKAN_CALLBACK _CreateDirectory) (
@@ -32,14 +45,14 @@ int (DOKAN_CALLBACK _Cleanup) (
   LPCWSTR name,      // FileName
   PDOKAN_FILE_INFO info)
 {
-  return obj->Cleanup(name, *info);
+  return ExtractProxy(info).Cleanup(name, *info);
 }
 
 int (DOKAN_CALLBACK _CloseFile) (
   LPCWSTR name,      // FileName
   PDOKAN_FILE_INFO info )
 {
-  return obj->CloseFile(name, *info);
+  return ExtractProxy(info).CloseFile(name, *info);
 }
 
 int (DOKAN_CALLBACK _ReadFile) (
@@ -78,7 +91,7 @@ int (DOKAN_CALLBACK _GetFileInformation) (
   LPBY_HANDLE_FILE_INFORMATION buffer, // Buffer
   PDOKAN_FILE_INFO info)
 {
-  return obj->GetFileInformation(name, buffer, *info);
+  return ExtractProxy(info).GetFileInformation(name, buffer, *info);
 }
 
 int (DOKAN_CALLBACK _FindFiles) (
@@ -86,7 +99,7 @@ int (DOKAN_CALLBACK _FindFiles) (
   PFillFindData data,    // call this function with PWIN32_FIND_DATAW
   PDOKAN_FILE_INFO info )  //  (see PFillFindData definition)
 {
-  return obj->FindFiles(name, data, *info);
+  return ExtractProxy(info).FindFiles(name, data, *info);
 }
 
 
@@ -230,7 +243,7 @@ int (DOKAN_CALLBACK _GetVolumeInformation) (
   std::wstring str_sfb = t;
   delete []t;
 
-  return obj->GetVolumeInformation(str_name, *serial, *component, *flags, str_sfb, *info);
+  return ExtractProxy(info).GetVolumeInformation(str_name, *serial, *component, *flags, str_sfb, *info);
 }
 
 

@@ -1,15 +1,19 @@
-#include "factory.h"
+#include "dokan.h"
 
 
 //static WCHAR RootDirectory[MAX_PATH] = L"C:";
 static WCHAR MountPoint[MAX_PATH] = L"M:";
 
-void InitMethods( PDOKAN_OPERATIONS );
+//void InitMethods( PDOKAN_OPERATIONS );
 
-static factory *handlers;
+//static factory *handlers;
 
 void main()
 {
+  dokan t;
+  t.InitDokan(MountPoint);
+  dokan::DOKAN_STATUS status = t.StartDokan();
+  /*
   handlers = new factory();
   PDOKAN_OPERATIONS oper = new DOKAN_OPERATIONS;
   PDOKAN_OPTIONS opt = new DOKAN_OPTIONS;
@@ -25,27 +29,27 @@ void main()
   InitMethods(oper);
 
   int status = DokanMain(opt, oper);
-
+  */
   switch (status) {
-  case DOKAN_SUCCESS:
+  case dokan::SUCCESS:
 	  fprintf(stderr, "Success\n");
 	  break;
-  case DOKAN_ERROR:
+  case dokan::GENERAL_ERROR:
 	  fprintf(stderr, "Error\n");
 	  break;
-  case DOKAN_DRIVE_LETTER_ERROR:
+  case dokan::DRIVE_LETTER_ERROR:
 	  fprintf(stderr, "Bad Drive letter\n");
 	  break;
-  case DOKAN_DRIVER_INSTALL_ERROR:
+  case dokan::DRIVER_INSTALL_ERROR:
 	  fprintf(stderr, "Can't install driver\n");
 	  break;
-  case DOKAN_START_ERROR:
+  case dokan::START_ERROR:
 	  fprintf(stderr, "Driver something wrong\n");
 	  break;
-  case DOKAN_MOUNT_ERROR:
+  case dokan::MOUNT_ERROR:
 	  fprintf(stderr, "Can't assign a drive letter\n");
 	  break;
-  case DOKAN_MOUNT_POINT_ERROR:
+  case dokan::MOUNT_POINT_ERROR:
 	  fprintf(stderr, "Mount point error\n");
 	  break;
   default:
@@ -53,5 +57,4 @@ void main()
 	  break;
   }
   fflush(stderr);
-  delete handlers;
 }

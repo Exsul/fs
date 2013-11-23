@@ -16,13 +16,13 @@ public:
 
   enum DOKAN_STATUS
   {
-    DOKAN_SUCCESS = 0,
-    DOKAN_ERROR = -1, /* General Error */
-    DOKAN_DRIVE_LETTER_ERROR = -2, /* Bad Drive letter */
-    DOKAN_DRIVER_INSTALL_ERROR= -3, /* Can't install driver */
-    DOKAN_START_ERROR = -4, /* Driver something wrong */
-    DOKAN_MOUNT_ERROR = -5, /* Can't assign a drive letter or mount point */
-    DOKAN_MOUNT_POINT_ERROR = -6, /* Mount point is invalid */
+    SUCCESS = 0,
+    GENERAL_ERROR = -1, /* General Error */
+    DRIVE_LETTER_ERROR = -2, /* Bad Drive letter */
+    DRIVER_INSTALL_ERROR= -3, /* Can't install driver */
+    START_ERROR = -4, /* Driver something wrong */
+    MOUNT_ERROR = -5, /* Can't assign a drive letter or mount point */
+    MOUNT_POINT_ERROR = -6, /* Mount point is invalid */
   };
 };
 
