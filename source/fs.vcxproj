@@ -96,6 +96,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AX\source\AX.vcxproj">
+      <Project>{792c27e3-863b-434c-a47a-f5f0515bfb20}</Project>
+    </ProjectReference>
     <ProjectReference Include="source\vfs.vcxproj">
       <Project>{90902c8d-2f56-4ed6-aa53-67b20534ac2a}</Project>
     </ProjectReference>
