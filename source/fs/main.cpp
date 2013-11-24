@@ -1,4 +1,4 @@
-#include "dokan.h"
+#include "dokan\dokan.h"
 
 
 //static WCHAR RootDirectory[MAX_PATH] = L"C:";
@@ -13,23 +13,7 @@ void main()
   dokan t;
   t.InitDokan(MountPoint);
   dokan::DOKAN_STATUS status = t.StartDokan();
-  /*
-  handlers = new factory();
-  PDOKAN_OPERATIONS oper = new DOKAN_OPERATIONS;
-  PDOKAN_OPTIONS opt = new DOKAN_OPTIONS;
 
-  memset(opt, 0, sizeof(DOKAN_OPTIONS));
-  opt->Version = DOKAN_VERSION;
-  opt->ThreadCount = 0; // use default
-  opt->Options |= DOKAN_OPTION_DEBUG | DOKAN_OPTION_KEEP_ALIVE;
-  //opt->Options |= DOKAN_OPTION_STDERR;
-  opt->MountPoint = MountPoint;
-
-  memset(oper, 0, sizeof(DOKAN_OPERATIONS));
-  InitMethods(oper);
-
-  int status = DokanMain(opt, oper);
-  */
   switch (status) {
   case dokan::SUCCESS:
 	  fprintf(stderr, "Success\n");

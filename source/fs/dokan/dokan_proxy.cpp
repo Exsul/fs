@@ -1,6 +1,13 @@
-#include "dokan_proxy.h"
-#include <iostream>
+#include "methods\methods_utils.h"
 
+vfs &dokan_proxy::Get()
+{
+  if (!worker)
+    worker = new vfs();
+  return *worker;
+}
+
+#include <iostream>
 static void DbgPrint(LPCWSTR format, ...)
 {
   WCHAR buffer[512];
@@ -11,13 +18,6 @@ static void DbgPrint(LPCWSTR format, ...)
   OutputDebugStringW(buffer);
   std::wstring t = buffer;
   std::wcout << t << std::endl;
-}
-
-int dokan_proxy::CreateFile(std::wstring filename, int access, int share, int pos, int flags, DOKAN_FILE_INFO &dokan_info)
-{
-  DbgPrint(L"CreateFile %s\n", filename.c_str());
-  dokan_info.Context = 30;
-  return 0;
 }
 
 int dokan_proxy::OpenDirectory(std::wstring filename, DOKAN_FILE_INFO &dokan_info)

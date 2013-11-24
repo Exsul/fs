@@ -7,6 +7,6 @@ struct create_disposition
     CREATE_NEW = 1,
     OPEN_ALWAYS = 4,
     OPEN_EXISTING = 3,
-    TRUNCATE_EXISTING = 5,
-  };
+    TRUNCATE_EXISTING = 5
+  } value;
 };

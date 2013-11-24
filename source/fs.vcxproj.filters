@@ -4,22 +4,40 @@
     <Filter Include="source">
       <UniqueIdentifier>{e62777b8-edcc-490c-9d45-8d2788e6aba4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\dokan">
+      <UniqueIdentifier>{bee416f4-c0f0-4e90-a6f9-d778172a2ab9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\entry">
+      <UniqueIdentifier>{6b9a7fab-8f7a-4c48-bd1c-83167bb2dc86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\dokan\methods">
+      <UniqueIdentifier>{8062b5ca-c745-4708-b251-6d420a3a920e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="fs\entry.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="fs\main.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="fs\sqlite3.c">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="fs\dokan.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="fs\entry.cpp">
+      <Filter>source\entry</Filter>
     </ClCompile>
-    <ClCompile Include="fs\dokan_proxy.cpp">
-      <Filter>source</Filter>
+    <ClCompile Include="fs\entry_init.cpp">
+      <Filter>source\entry</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\dokan.cpp">
+      <Filter>source\dokan</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\dokan_proxy.cpp">
+      <Filter>source\dokan</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\CreateFile.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\methods_utils.cpp">
+      <Filter>source\dokan\methods</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -32,14 +50,20 @@
     <ClInclude Include="fs\sqlite3.h">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="fs\dokan.h">
-      <Filter>source</Filter>
+    <ClInclude Include="fs\entry.h">
+      <Filter>source\entry</Filter>
     </ClInclude>
-    <ClInclude Include="fs\dokan_cpp_port.h">
-      <Filter>source</Filter>
+    <ClInclude Include="fs\dokan\dokan.h">
+      <Filter>source\dokan</Filter>
     </ClInclude>
-    <ClInclude Include="fs\dokan_proxy.h">
-      <Filter>source</Filter>
+    <ClInclude Include="fs\dokan\dokan_cpp_port.h">
+      <Filter>source\dokan</Filter>
+    </ClInclude>
+    <ClInclude Include="fs\dokan\dokan_proxy.h">
+      <Filter>source\dokan</Filter>
+    </ClInclude>
+    <ClInclude Include="fs\dokan\methods\methods_utils.h">
+      <Filter>source\dokan\methods</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

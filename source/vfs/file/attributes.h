@@ -11,4 +11,8 @@ struct attributes
     SYSTEM = 0x4,
     TEMPORARY = 0x100
   };
+
+  vector<ATTRIBUTES> attr;
+
+  bool Enabled(ATTRIBUTES) const;
 };

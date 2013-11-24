@@ -1,7 +1,7 @@
 #ifndef _FS_DOKAN_H_
 #define _FS_DOKAN_H_
 
-#include "header.h"
+#include "../header.h"
 #include "dokan_cpp_port.h"
 
 class dokan
