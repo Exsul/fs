@@ -4,19 +4,17 @@
 
 #include <sstream>
 DEPRECATED // by born
-namespace
+
+wstring ConCat(const wstring &a, const wstring &b)
 {
-  wstring ConCat(const wstring &a, const wstring &b)
-  {
-    std::wstringstream stream;
-    stream << a << b;
-    return stream.str();
-  }
-  wstring Cache(const wstring &filename)
-  {
-    wstring tmp_dir = L"C:\\mapped";
-    return ConCat(tmp_dir, filename);
-  }
+  std::wstringstream stream;
+  stream << a << b;
+  return stream.str();
+}
+wstring Cache(const wstring &filename)
+{
+  wstring tmp_dir = L"C:\\mapped";
+  return ConCat(tmp_dir, filename);
 }
 
 file_handler &vfs::CreateFile(wstring filename, access_rights, create_disposition, attributes)

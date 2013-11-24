@@ -8,7 +8,7 @@ class dokan_proxy
 
   vfs &Get();
 public:
-  int CreateFile(std::wstring filename, int access, int share, int pos, int flags, DOKAN_FILE_INFO &dokan_info);
+  int CreateFile(std::wstring filename, int access, int share, int pos, word flags, DOKAN_FILE_INFO &dokan_info);
   int OpenDirectory(std::wstring filename, DOKAN_FILE_INFO &dokan_info);
   int CreateDirectory(std::wstring filename, DOKAN_FILE_INFO &dokan_info);
   int Cleanup(std::wstring filename, DOKAN_FILE_INFO &dokan_info);

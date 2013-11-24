@@ -16,6 +16,9 @@
     <Filter Include="file\cached_file\src">
       <UniqueIdentifier>{4610adc2-8540-46b9-b296-12f0bf2ff54b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="directory\src">
+      <UniqueIdentifier>{3cc58f84-cdf5-4ac8-bd46-1aac4c447bbd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vfs\directory\directory.h">
@@ -61,6 +64,7 @@
     <ClInclude Include="vfs\directory\file_find_data.h">
       <Filter>directory</Filter>
     </ClInclude>
+    <ClInclude Include="vfs\internal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vfs\vfs.cpp" />
@@ -77,6 +81,15 @@
       <Filter>file\cached_file\src</Filter>
     </ClCompile>
     <ClCompile Include="vfs\file\access_rights.cpp">
+      <Filter>file\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vfs\directory\directory.cpp">
+      <Filter>directory\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vfs\directory\directory_hander.cpp">
+      <Filter>directory\src</Filter>
+    </ClCompile>
+    <ClCompile Include="vfs\file\attributes.cpp">
       <Filter>file\src</Filter>
     </ClCompile>
   </ItemGroup>

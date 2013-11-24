@@ -27,15 +27,6 @@ int dokan_proxy::OpenDirectory(std::wstring filename, DOKAN_FILE_INFO &dokan_inf
   return 0;
 }
 
-int dokan_proxy::FindFiles(std::wstring filename, PFillFindData func, DOKAN_FILE_INFO &dokan_info)
-{
-  DbgPrint(L"FindFiles %s\n", filename.c_str());
-  WIN32_FIND_DATAW data;
-  wcscpy(data.cFileName, L"README.txt");
-  func(&data, &dokan_info);
-  return 0;
-}
-
 int dokan_proxy::GetVolumeInformation(std::wstring name, DWORD &serial, DWORD &maximum_length, DWORD &flags, std::wstring file_system, DOKAN_FILE_INFO &dokan_info)
 {
   return ERROR_NOT_READY * -1;

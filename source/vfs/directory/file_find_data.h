@@ -20,10 +20,12 @@ typedef struct _WIN32_FIND_DATAW
 */
 
 #include "../stdafx.h"
+#include "../file/attributes.h"
 
 // struct _WIN32_FIND_DATAW
 struct file_find_data
 {
   wstring filename;
   dword size;
+  attributes attr;
 };

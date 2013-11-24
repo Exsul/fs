@@ -12,5 +12,3 @@ template<>
 access_rights convert(const int &a);
 template<>
 create_disposition convert(const int &a);
-template<>
-attributes convert(const int &a);
