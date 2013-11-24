@@ -22,6 +22,12 @@ cached_file_handler::cached_file_handler(const cached_file_handler &)
   todo(What i should do on cached_file_handler_copy);
 }
 
+cached_file_handler::cached_file_handler(const wstring &cache_filename)
+: impl(nullptr), cache_filename_location(cache_filename)
+{
+}
+
+
 cached_file_handler::~cached_file_handler()
 {
   if (impl)

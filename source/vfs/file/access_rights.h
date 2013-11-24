@@ -9,7 +9,7 @@ struct access_rights
     DELETE = 4
   };
 
-  vector<ACCESS_RIGHTS> rights;
+  std::vector<ACCESS_RIGHTS> rights;
 
   bool Enabled(ACCESS_RIGHTS) const;
 };

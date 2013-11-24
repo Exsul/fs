@@ -76,5 +76,8 @@
     <ClCompile Include="vfs\file\cached\cached_file_handler_impl.cpp">
       <Filter>file\cached_file\src</Filter>
     </ClCompile>
+    <ClCompile Include="vfs\file\access_rights.cpp">
+      <Filter>file\src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
