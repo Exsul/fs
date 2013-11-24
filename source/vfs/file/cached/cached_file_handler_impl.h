@@ -13,6 +13,7 @@ public:
   cached_file_handler_impl(const wstring name, const access_rights);
   ~cached_file_handler_impl();
 
+  static void Create(wstring name);
   dword Length() const;
   dword Offset() const;
   dword Offset(const dword);

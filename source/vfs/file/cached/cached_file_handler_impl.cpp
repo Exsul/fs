@@ -65,3 +65,9 @@ word cached_file_handler_impl::Write(const std::vector<ub> &data)
   return writed;
 }
 
+void cached_file_handler_impl::Create(const wstring name)
+{
+  access_rights r;
+  r.rights.push_back(access_rights::WRITE);
+  cached_file_handler_impl(name, r);
+}

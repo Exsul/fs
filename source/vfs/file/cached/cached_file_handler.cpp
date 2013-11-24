@@ -27,11 +27,16 @@ cached_file_handler::cached_file_handler(const wstring &cache_filename)
 {
 }
 
-
 cached_file_handler::~cached_file_handler()
 {
   if (impl)
     delete impl;
+}
+
+cached_file_handler cached_file_handler::Create(const wstring name)
+{
+  cached_file_handler_impl::Create(name);
+  return cached_file_handler(name);
 }
 
 dword cached_file_handler::Offset() const

@@ -12,6 +12,7 @@ struct cached_file_handler : public file_handler
 
   ~cached_file_handler();
 
+  static cached_file_handler Create(const wstring name);
   virtual dword Offset() const;
   virtual dword Offset(dword offset);
   virtual dword Length() const;

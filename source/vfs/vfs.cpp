@@ -14,7 +14,7 @@ namespace
   }
   wstring Cache(const wstring &filename)
   {
-    wstring tmp_dir = L"C:\\Users\\Enelar\\AppData\\Local\\Temp\\fs_debug\\";
+    wstring tmp_dir = L"C:\\mapped";
     return ConCat(tmp_dir, filename);
   }
 }
@@ -22,7 +22,7 @@ namespace
 file_handler &vfs::CreateFile(wstring filename, access_rights, create_disposition, attributes)
 {
   wstring actual_mapped_file = Cache(filename);
-  cached_file_handler *ret = MEMLEAK NEW cached_file_handler(actual_mapped_file);
+  cached_file_handler *ret = NEW MEMLEAK cached_file_handler(cached_file_handler::Create(actual_mapped_file));
   return *ret;
 }
 
@@ -34,7 +34,7 @@ file_handler &vfs::CreateFile(wstring filename)
 file_handler &vfs::OpenFile(wstring filename)
 {
   wstring actual_mapped_file = Cache(filename);
-  cached_file_handler *ret = MEMLEAK NEW cached_file_handler(actual_mapped_file);
+  cached_file_handler *ret = NEW MEMLEAK cached_file_handler(actual_mapped_file);
   return *ret;
 }
 
@@ -45,7 +45,7 @@ directory_handler &vfs::OpenDirectory(wstring dirname)
 
 directory_handler &vfs::CreateDirectory(wstring dirname)
 {
-  directory_handler *res = MEMLEAK NEW directory_handler(dirname);
+  directory_handler *res = NEW MEMLEAK directory_handler(dirname);
   return *res;
 }
 
