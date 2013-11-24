@@ -35,6 +35,9 @@ int dokan_proxy::FindFiles(std::wstring filename, PFillFindData func, DOKAN_FILE
     SetSize();
 
     data.dwFileAttributes = convert<word>(fd.attr);
+
+    // data inited
+    func(&data, &dokan_info);
   };
   d.FindFiles(L"*", Callback);
   /*
