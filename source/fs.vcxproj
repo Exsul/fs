@@ -105,7 +105,9 @@
     <ClCompile Include="fs\dokan\dokan_proxy.cpp" />
     <ClCompile Include="fs\dokan\methods\CreateFile.cpp" />
     <ClCompile Include="fs\dokan\methods\FindFiles.cpp" />
+    <ClCompile Include="fs\dokan\methods\GetVolumeInformation.cpp" />
     <ClCompile Include="fs\dokan\methods\methods_utils.cpp" />
+    <ClCompile Include="fs\dokan\methods\OpenDirectory.cpp" />
     <ClCompile Include="fs\entry.cpp" />
     <ClCompile Include="fs\entry_init.cpp" />
     <ClCompile Include="fs\main.cpp" />

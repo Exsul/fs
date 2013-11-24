@@ -17,7 +17,7 @@ wstring Cache(const wstring &filename)
   return ConCat(tmp_dir, filename);
 }
 
-file_handler &vfs::CreateFile(wstring filename, access_rights, create_disposition, attributes)
+file_handler &vfs::CreateFile(wstring filename, access_rights ar, create_disposition cd, attributes at)
 {
   wstring actual_mapped_file = Cache(filename);
   cached_file_handler *ret = NEW MEMLEAK cached_file_handler(cached_file_handler::Create(actual_mapped_file));

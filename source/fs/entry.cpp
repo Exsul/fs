@@ -24,14 +24,14 @@ int DOKAN_CALLBACK _CreateFile (
     DWORD flags,        // FlagsAndAttributes
     PDOKAN_FILE_INFO info )
 {
-  return ExtractProxy(info).CreateFile(filename, access, share, pos, flags, *info);
+  return -1 * ExtractProxy(info).CreateFile(filename, access, share, pos, flags, *info);
 }
 
 int DOKAN_CALLBACK _OpenDirectory (
   LPCWSTR filename,        // FileName
   PDOKAN_FILE_INFO info)
 {
-  return ExtractProxy(info).OpenDirectory(filename, *info);
+  return -1 * ExtractProxy(info).OpenDirectory(filename, *info);
 }
 
 int (DOKAN_CALLBACK _CreateDirectory) (
@@ -46,14 +46,14 @@ int (DOKAN_CALLBACK _Cleanup) (
   LPCWSTR name,      // FileName
   PDOKAN_FILE_INFO info)
 {
-  return ExtractProxy(info).Cleanup(name, *info);
+  return -1 * ExtractProxy(info).Cleanup(name, *info);
 }
 
 int (DOKAN_CALLBACK _CloseFile) (
   LPCWSTR name,      // FileName
   PDOKAN_FILE_INFO info )
 {
-  return ExtractProxy(info).CloseFile(name, *info);
+  return -1 * ExtractProxy(info).CloseFile(name, *info);
 }
 
 int (DOKAN_CALLBACK _ReadFile) (
@@ -92,7 +92,7 @@ int (DOKAN_CALLBACK _GetFileInformation) (
   LPBY_HANDLE_FILE_INFORMATION buffer, // Buffer
   PDOKAN_FILE_INFO info)
 {
-  return ExtractProxy(info).GetFileInformation(name, buffer, *info);
+  return -1 * ExtractProxy(info).GetFileInformation(name, buffer, *info);
 }
 
 int (DOKAN_CALLBACK _FindFiles) (
@@ -100,7 +100,7 @@ int (DOKAN_CALLBACK _FindFiles) (
   PFillFindData data,    // call this function with PWIN32_FIND_DATAW
   PDOKAN_FILE_INFO info )  //  (see PFillFindData definition)
 {
-  return ExtractProxy(info).FindFiles(name, data, *info);
+  return -1 * ExtractProxy(info).FindFiles(name, data, *info);
 }
 
 
@@ -224,27 +224,31 @@ int (DOKAN_CALLBACK _GetDiskFreeSpace) (
 
 // see Win32 API GetVolumeInformation
 int (DOKAN_CALLBACK _GetVolumeInformation) (
-  LPWSTR name, // VolumeNameBuffer
-  DWORD cname,  // VolumeNameSize in num of chars
-  LPDWORD serial,// VolumeSerialNumber
-  LPDWORD component,// MaximumComponentLength in num of chars
-  LPDWORD flags,// FileSystemFlags
-  LPWSTR fsb,  // FileSystemNameBuffer
-  DWORD cfsb,  // FileSystemNameSize in num of chars
-  PDOKAN_FILE_INFO info)
+  LPWSTR _name, // VolumeNameBuffer
+  DWORD _cname,  // VolumeNameSize in num of chars
+  LPDWORD _serial,// VolumeSerialNumber
+  LPDWORD _component,// MaximumComponentLength in num of chars
+  LPDWORD _flags,// FileSystemFlags
+  LPWSTR _fsb,  // FileSystemNameBuffer
+  DWORD _cfsb,  // FileSystemNameSize in num of chars
+  PDOKAN_FILE_INFO _info)
 {
-  WCHAR *t = new WCHAR[cname + 1];
-  memcpy(t, name, cname);
-  t[cname] = 0;
-  std::wstring str_name = t;
-  delete []t;
-  t = new WCHAR[cfsb + 1];
-  memcpy(t, fsb, cfsb);
-  t[cfsb] = 0;
-  std::wstring str_sfb = t;
-  delete []t;
+  std::wstring name, fsname;
+  word serial, max_filename_length, flags;
+  int ret = -1 * ExtractProxy(_info).GetVolumeInformation(name, serial, max_filename_length, flags, fsname, *_info);
 
-  return ExtractProxy(info).GetVolumeInformation(str_name, *serial, *component, *flags, str_sfb, *info);
+  if (_name && _cname >= name.length())
+    ax::StrCopy(_name, name.c_str(), _cname);
+  if (_fsb && _cfsb >= fsname.length())
+    ax::StrCopy(_fsb, fsname.c_str(), _cfsb);
+
+  if (_serial)
+    *_serial = serial;
+  if (_component)
+    *_component = max_filename_length;
+  if (_flags)
+    *_flags = flags;
+  return ret;
 }
 
 

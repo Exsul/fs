@@ -8,6 +8,14 @@ static WCHAR MountPoint[MAX_PATH] = L"M:";
 
 //static factory *handlers;
 
+struct t
+{
+  t()
+  {
+    throw_message("Hello");
+  }
+};
+
 void main()
 {
   dokan t;

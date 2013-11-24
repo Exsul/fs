@@ -12,3 +12,4 @@ template<>
 access_rights convert(const int &a);
 template<>
 create_disposition convert(const int &a);
+void DbgPrint(LPCWSTR format, ...);

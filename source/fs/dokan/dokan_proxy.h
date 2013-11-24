@@ -29,7 +29,7 @@ public:
   int LockFile(std::wstring filename, __int64 offset, __int64 length, DOKAN_FILE_INFO &dokan_info);
   int UnlockFile(std::wstring filename, __int64 offset, __int64 length, DOKAN_FILE_INFO &dokan_info);
   int GetDiskFreeSpace(__int64 &avaib, __int64 &total, __int64 &free, DOKAN_FILE_INFO &dokan_info);
-  int GetVolumeInformation(std::wstring name, DWORD &serial, DWORD &maximum_length, DWORD &flags, std::wstring file_system, DOKAN_FILE_INFO &dokan_info);
+  int GetVolumeInformation(std::wstring &name, word &serial, word &max_filename_length, word &flags, std::wstring &file_system, DOKAN_FILE_INFO &dokan_info);
   int Unmount(DOKAN_FILE_INFO &dokan_info);
   int GetFileSecurity(std::wstring name, PSECURITY_INFORMATION, PSECURITY_DESCRIPTOR, int, int &, DOKAN_FILE_INFO &dokan_info);
   int SetFileSecurity(std::wstring name, PSECURITY_INFORMATION, PSECURITY_DESCRIPTOR, int, DOKAN_FILE_INFO &dokan_info);

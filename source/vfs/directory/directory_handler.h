@@ -7,6 +7,9 @@ struct directory_handler : object
   wstring name;
 
   directory_handler(wstring name);
+
+  struct directory_not_found
+  {};
 };
 
 #endif

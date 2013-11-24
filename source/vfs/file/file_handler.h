@@ -17,6 +17,11 @@ public:
   virtual word Write(std::vector<ub> data) = 0;
 
   const std::wstring &Name() const;
+
+  struct file_not_found
+  {};
+  struct access_denied
+  {};
 };
 
 #endif

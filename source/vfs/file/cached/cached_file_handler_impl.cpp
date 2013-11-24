@@ -1,4 +1,5 @@
 #include "cached_file_handler_impl.h"
+#include "../file_handler.h"
 
 cached_file_handler_impl::cached_file_handler_impl(const wstring name, const access_rights r)
 : offset(0), F(nullptr), length(WORD_MAX)
@@ -7,7 +8,14 @@ cached_file_handler_impl::cached_file_handler_impl(const wstring name, const acc
   if (r.Enabled(access_rights::WRITE))
     ar[0] = 'w';
   errno_t error = _wfopen_s(&F, name.c_str(), ar);
-  throw_sassert(F, "File cache not found! Cache corrupted");
+  if (F)
+    return;
+
+  if (error == ENOENT)
+    throw file_handler::file_not_found();
+  if (error == EACCES)
+    throw file_handler::access_denied();
+  throw_message("File cache not found! Cache corrupted");
 }
 
 cached_file_handler_impl::~cached_file_handler_impl()

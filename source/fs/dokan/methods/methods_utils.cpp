@@ -21,3 +21,16 @@ create_disposition convert(const int &a)
 {
   return create_disposition{convert<create_disposition::CREATE_DISPOSITION>(a)};
 }
+
+#include <iostream>
+void DbgPrint(LPCWSTR format, ...)
+{
+  WCHAR buffer[512];
+  va_list argp;
+  va_start(argp, format);
+  vswprintf_s(buffer, sizeof(buffer) / sizeof(WCHAR), format, argp);
+  va_end(argp);
+  OutputDebugStringW(buffer);
+  std::wstring t = buffer;
+  std::wcout << t << std::endl;
+}
