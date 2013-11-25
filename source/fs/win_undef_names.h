@@ -1,0 +1,9 @@
+#undef CreateFile
+#undef CreateDirectory
+#undef SetFileAttributes
+#undef DeleteFile
+#undef MoveFile
+#undef GetDiskFreeSpace
+#undef GetVolumeInformation
+#undef GetFileSecurity
+#undef SetFileSecurity

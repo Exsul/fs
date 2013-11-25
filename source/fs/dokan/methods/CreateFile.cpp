@@ -4,21 +4,27 @@ int dokan_proxy::CreateFile(std::wstring filename, int access, int share, int po
 {
   HANDLER_BEGIN(L"CreateFile", filename);
 
-  DBG_ASSERT_RETURN(!dokan_info.IsDirectory, ERROR_BAD_COMMAND, (L"[ERROR] IsDirectory Flag set"));
   DBG_ASSERT_RETURN(!dokan_info.Context, ERROR_BAD_COMMAND, (L"[ERROR] Context is not null"));
+  
+  try
+  {
+    attributes attr = Get().GetAttributes(filename);
+    if (attr.Enabled(attributes::DIRECTORY))
+      return CreateDirectory(filename, dokan_info);
+  }
+  catch (file_handler::file_not_found)
+  {
+  }
 
-  REFACTOR // GetFileAttributes to check is it directory
+  DBG_ASSERT_RETURN(!dokan_info.IsDirectory, ERROR_BAD_COMMAND, (L"[ERROR] IsDirectory Flag set"));
+
   try
   {
     file_handler &fh = Get().CreateFile(filename, convert<access_rights>(access), convert<create_disposition>(share), convert<attributes>(flags));
     dokan_info.Context = reinterpret_cast<ULONG64>(&fh);
     DbgPrint(L"creating context: 0x%.08X", dokan_info.Context);
-  } catch (file_handler::file_not_found)
-  {
-    DbgPrint(L"NotFound, trying as directory");
-    DBG_ASSERT_RETURN(!OpenDirectory(filename, dokan_info), ERROR_FILE_NOT_FOUND, (L"[ERROR] NotFound"));
-    DBG_RETURN(0, (L"is directory"));
-  } catch (file_handler::access_denied)
+  }
+  catch (file_handler::access_denied)
   {
     DBG_RETURN(ERROR_ACCESS_DENIED, (L"[ERROR] AccessDenied"));
   }

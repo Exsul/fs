@@ -98,6 +98,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="vfs\vfs_raw_win.cpp" />
     <ClInclude Include="vfs\directory\directory.h" />
     <ClCompile Include="vfs\directory\directory_hander.cpp">
       <FileType>CppHeader</FileType>

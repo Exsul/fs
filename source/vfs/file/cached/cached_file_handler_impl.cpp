@@ -15,6 +15,8 @@ cached_file_handler_impl::cached_file_handler_impl(const wstring name, const acc
     throw file_handler::file_not_found();
   if (error == EACCES)
     throw file_handler::access_denied();
+  if (error == EINVAL) // trying to access directory as file (ex C:\blabla\)
+    throw file_handler::file_not_found();
   throw_message("File cache not found! Cache corrupted");
 }
 

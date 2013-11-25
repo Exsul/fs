@@ -77,5 +77,8 @@
     <ClInclude Include="fs\dokan\methods\methods_utils.h">
       <Filter>source\dokan\methods</Filter>
     </ClInclude>
+    <ClInclude Include="fs\win_undef_names.h">
+      <Filter>source\dokan</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

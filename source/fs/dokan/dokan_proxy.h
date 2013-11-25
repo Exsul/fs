@@ -1,6 +1,6 @@
 #include "dokan_cpp_port.h"
 
-#undef CreateFile
+#include "../win_undef_names.h"
 class vfs;
 class dokan_proxy
 {

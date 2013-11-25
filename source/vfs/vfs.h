@@ -19,6 +19,8 @@ public:
   directory_handler &OpenDirectory(wstring dirname);
   directory_handler &CreateDirectory(wstring dirname);
 
+  attributes GetAttributes(wstring path);
+
   void GetDiscSpace(dword &avaible, dword &total, dword &free);
 /*/
   int Cleanup(std::wstring filename, DOKAN_FILE_INFO &dokan_info);

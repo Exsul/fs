@@ -5,7 +5,7 @@ int dokan_proxy::OpenDirectory(wstring dirname, DOKAN_FILE_INFO &dokan_info)
   if (dokan_info.Context)
     return ERROR_BAD_COMMAND;
 
-  HANDLER_BEGIN("OpenDirectory", dirname);
+  HANDLER_BEGIN(L"OpenDirectory", dirname);
 
   try
   {

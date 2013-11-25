@@ -92,5 +92,6 @@
     <ClCompile Include="vfs\file\attributes.cpp">
       <Filter>file\src</Filter>
     </ClCompile>
+    <ClCompile Include="vfs\vfs_raw_win.cpp" />
   </ItemGroup>
 </Project>

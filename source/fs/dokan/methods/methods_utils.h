@@ -6,6 +6,7 @@
 #undef OPEN_ALWAYS
 #undef OPEN_EXISTING
 #undef TRUNCATE_EXISTING
+#include "../../win_undef_names.h"
 #include "../../../vfs/vfs.h"
 
 template<>
