@@ -5,7 +5,10 @@ int dokan_proxy::CreateFile(std::wstring filename, int access, int share, int po
   HANDLER_BEGIN(L"CreateFile", filename);
 
   DBG_ASSERT_RETURN(!dokan_info.Context, ERROR_BAD_COMMAND, (L"[ERROR] Context is not null"));
-  
+
+  access_rights ar = convert<access_rights>(access);
+  create_disposition cd = convert<create_disposition>(share);
+  attributes at = convert<attributes>(flags);
   try
   {
     attributes attr = Get().GetAttributes(filename);
@@ -20,7 +23,7 @@ int dokan_proxy::CreateFile(std::wstring filename, int access, int share, int po
 
   try
   {
-    file_handler *fh = Get().CreateFile(filename, convert<access_rights>(access), convert<create_disposition>(share), convert<attributes>(flags));
+    file_handler *fh = Get().CreateFile(filename, ar, cd, at);
     dokan_info.Context = reinterpret_cast<ULONG64>(fh);
     DbgPrint(L"creating context: 0x%.08X", dokan_info.Context);
   }
