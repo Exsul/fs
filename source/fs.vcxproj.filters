@@ -63,6 +63,57 @@
     <ClCompile Include="fs\dokan\methods\WriteFile.cpp">
       <Filter>source\dokan\methods</Filter>
     </ClCompile>
+    <ClCompile Include="fs\dokan\methods\FlushFileBuffers.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\FindFilesWithPattern.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\SetFileAttributes.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\SetFileTime.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\DeleteFile.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\DeleteDirectory.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\MoveFile.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\SetEndOfFile.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\SetAllocationSize.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\LockFile.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\UnlockFile.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\GetDiskFreeSpace.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\GetFileSecurity.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\SetFileSecurity.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\Unmount.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\CloseFile.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\GetFileInformation.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fs\factory.h">
