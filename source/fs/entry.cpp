@@ -98,7 +98,7 @@ int (DOKAN_CALLBACK _GetFileInformation) (
   LPBY_HANDLE_FILE_INFORMATION buffer, // Buffer
   PDOKAN_FILE_INFO info)
 {
-  return -1 * ExtractProxy(info).GetFileInformation(name, buffer, *info);
+  return -1 * ExtractProxy(info).GetFileInformation(name, *buffer, *info);
 }
 
 int (DOKAN_CALLBACK _FindFiles) (

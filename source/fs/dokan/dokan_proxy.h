@@ -7,6 +7,7 @@ class dokan_proxy
   vfs *worker = nullptr;
 
   vfs &Get();
+  word cached_serial = 0;
 public:
   int CreateFile(std::wstring filename, int access, int share, int pos, word flags, DOKAN_FILE_INFO &dokan_info);
   int OpenDirectory(std::wstring filename, DOKAN_FILE_INFO &dokan_info);
@@ -16,7 +17,7 @@ public:
   int ReadFile(std::wstring filename, void *buf, int to_read, int &readed, __int64 offset, DOKAN_FILE_INFO &dokan_info);
   int WriteFile(std::wstring filename, const void *buf, int to_write, int &written, __int64 offset, DOKAN_FILE_INFO &dokan_info);
   int FlushFileBuffers(std::wstring filename, DOKAN_FILE_INFO &dokan_info);
-  int GetFileInformation(std::wstring filename, LPBY_HANDLE_FILE_INFORMATION buffer, DOKAN_FILE_INFO &dokan_info);
+  int GetFileInformation(std::wstring filename, BY_HANDLE_FILE_INFORMATION &buffer, DOKAN_FILE_INFO &dokan_info);
   int FindFiles(std::wstring filename, PFillFindData, DOKAN_FILE_INFO &dokan_info);
   int FindFilesWithPattern(std::wstring filename, std::wstring pattern, PFillFindData, DOKAN_FILE_INFO &dokan_info);
   int SetFileAttributes(std::wstring filename, int attr, DOKAN_FILE_INFO &dokan_info);

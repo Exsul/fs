@@ -6,7 +6,7 @@ int dokan_proxy::GetVolumeInformation(std::wstring &name, word &serial, word &ma
 
   name = L"PROTOTYPE";
   file_system = L"PROTOTYPE";
-  serial = 30;
+  serial = cached_serial = 30;
   max_filename_length = GETMAXVALUE(BITSINBYTE * 1);
   const int read_only = 0x00080000;
   flags = REFACTOR read_only;
