@@ -3,6 +3,7 @@
 
 int dokan_proxy::FindFiles(std::wstring filename, PFillFindData func, DOKAN_FILE_INFO &dokan_info)
 {
+  DbgPrint(L">FindFiles: %s", filename.c_str());
   directory_handler dh = Get().OpenDirectory(filename);
   directory d(dh);
 

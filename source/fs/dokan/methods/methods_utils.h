@@ -12,4 +12,28 @@ template<>
 access_rights convert(const int &a);
 template<>
 create_disposition convert(const int &a);
-void DbgPrint(LPCWSTR format, ...);
+
+#include <fstream>
+class dbg_print
+{
+  word depth = 0;
+  std::wofstream file;
+public:
+  dbg_print();
+  ~dbg_print();
+  void operator()(LPCWSTR format, ...);
+  struct lvl_dbg_print
+  {
+    ~lvl_dbg_print();
+    lvl_dbg_print(const lvl_dbg_print &) = delete;
+    template<typename T> void operator=(T) = delete;
+    lvl_dbg_print(lvl_dbg_print &&);
+  private:
+    lvl_dbg_print();
+    friend class dbg_print;
+  };
+  friend struct lvl_dbg_print;
+  lvl_dbg_print Down() const;
+};
+
+extern dbg_print DbgPrint;
