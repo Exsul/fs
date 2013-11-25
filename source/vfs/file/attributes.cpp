@@ -39,3 +39,11 @@ attributes convert(const word &a)
 
   return ret;
 }
+
+bool attributes::Enabled(attributes::ATTRIBUTES a) const
+{
+  for each (ATTRIBUTES var in attr)
+    if (var == a)
+      return true;
+  return false;
+}
