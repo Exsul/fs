@@ -20,8 +20,8 @@ int dokan_proxy::CreateFile(std::wstring filename, int access, int share, int po
 
   try
   {
-    file_handler &fh = Get().CreateFile(filename, convert<access_rights>(access), convert<create_disposition>(share), convert<attributes>(flags));
-    dokan_info.Context = reinterpret_cast<ULONG64>(&fh);
+    file_handler *fh = Get().CreateFile(filename, convert<access_rights>(access), convert<create_disposition>(share), convert<attributes>(flags));
+    dokan_info.Context = reinterpret_cast<ULONG64>(fh);
     DbgPrint(L"creating context: 0x%.08X", dokan_info.Context);
   }
   catch (file_handler::access_denied)

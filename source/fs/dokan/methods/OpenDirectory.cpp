@@ -9,8 +9,8 @@ int dokan_proxy::OpenDirectory(wstring dirname, DOKAN_FILE_INFO &dokan_info)
 
   try
   {
-    directory_handler &dh = Get().OpenDirectory(dirname);
-    dokan_info.Context = reinterpret_cast<ULONG64>(&dh);
+    directory_handler *dh = Get().OpenDirectory(dirname);
+    dokan_info.Context = reinterpret_cast<ULONG64>(dh);
     DbgPrint(L"Creating context: 0x%.08X", dokan_info.Context);
   } catch (directory_handler::directory_not_found &)
   {

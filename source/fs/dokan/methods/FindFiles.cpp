@@ -4,8 +4,8 @@
 int dokan_proxy::FindFiles(std::wstring filename, PFillFindData func, DOKAN_FILE_INFO &dokan_info)
 {
   HANDLER_BEGIN(L"FindFiles", filename);
-  directory_handler dh = Get().OpenDirectory(filename);
-  directory d(dh);
+  directory_handler *dh = Get().OpenDirectory(filename);
+  directory d(*dh);
 
   auto Callback = [func, &dokan_info](const file_find_data &fd)
   {

@@ -12,14 +12,14 @@ using namespace std;
 class vfs
 {
 public:
-  file_handler &CreateFile(wstring filename, access_rights, create_disposition, attributes);
-  file_handler &CreateFile(wstring filename);
-  file_handler &OpenFile(wstring filename);
+  file_handler *CreateFile(wstring filename, access_rights, create_disposition, attributes);
+  file_handler *CreateFile(wstring filename);
+  file_handler *OpenFile(wstring filename);
 
-  directory_handler &OpenDirectory(wstring dirname);
-  directory_handler &CreateDirectory(wstring dirname);
+  directory_handler *OpenDirectory(wstring dirname);
+  directory_handler *CreateDirectory(wstring dirname);
 
-  attributes GetAttributes(wstring path);
+  attributes GetAttributes(wstring);
 
   void GetDiscSpace(dword &avaible, dword &total, dword &free);
 /*/

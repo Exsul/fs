@@ -17,34 +17,31 @@ wstring Cache(const wstring &filename)
   return ConCat(tmp_dir, filename);
 }
 
-file_handler &vfs::CreateFile(wstring filename, access_rights ar, create_disposition cd, attributes at)
+file_handler *vfs::CreateFile(wstring filename, access_rights ar, create_disposition cd, attributes at)
 {
   wstring actual_mapped_file = Cache(filename);
-  cached_file_handler *ret = NEW MEMLEAK cached_file_handler(cached_file_handler::Create(actual_mapped_file));
-  return *ret;
+  return NEW MEMLEAK cached_file_handler(cached_file_handler::Create(actual_mapped_file));
 }
 
-file_handler &vfs::CreateFile(wstring filename)
+file_handler *vfs::CreateFile(wstring filename)
 {
   todo(Looks like simple creation is deprecated);
 }
 
-file_handler &vfs::OpenFile(wstring filename)
+file_handler *vfs::OpenFile(wstring filename)
 {
   wstring actual_mapped_file = Cache(filename);
-  cached_file_handler *ret = NEW MEMLEAK cached_file_handler(actual_mapped_file);
-  return *ret;
+  return NEW MEMLEAK cached_file_handler(actual_mapped_file);
 }
 
-directory_handler &vfs::OpenDirectory(wstring dirname)
+directory_handler *vfs::OpenDirectory(wstring dirname)
 { REFACTOR
   return CreateDirectory(dirname);
 }
 
-directory_handler &vfs::CreateDirectory(wstring dirname)
+directory_handler *vfs::CreateDirectory(wstring dirname)
 {
-  directory_handler *res = NEW MEMLEAK directory_handler(dirname);
-  return *res;
+  return NEW MEMLEAK directory_handler(dirname);
 }
 
 void vfs::GetDiscSpace(dword &avaible, dword &total, dword &free)
