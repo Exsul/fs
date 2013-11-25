@@ -38,7 +38,7 @@ void dbg_print::operator()(LPCWSTR format, ...)
   {
     wstring ret;
     for (word i = 0; i < depth; ++i)
-      ret = ConCat(ret, L"  ");
+      ret = ConCat(ret, L"   ");
     return ret;
   };
 

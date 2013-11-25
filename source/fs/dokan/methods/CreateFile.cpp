@@ -12,7 +12,7 @@ int dokan_proxy::CreateFile(std::wstring filename, int access, int share, int po
   {
     file_handler &fh = Get().CreateFile(filename, convert<access_rights>(access), convert<create_disposition>(share), convert<attributes>(flags));
     dokan_info.Context = reinterpret_cast<ULONG64>(&fh);
-    DbgPrint(L"Creating context: %li", dokan_info.Context);
+    DbgPrint(L"Creating context: %#010x", dokan_info.Context);
   } catch (file_handler::file_not_found)
   {
     DbgPrint(L"NotFound, trying as directory");

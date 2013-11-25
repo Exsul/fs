@@ -38,6 +38,6 @@ public:
 
 extern dbg_print DbgPrint;
 
-#define HANDLER_BEGIN(methodname, filename) DbgPrint(L"> %s %s", methodname, filename.c_str()); auto level = DbgPrint.Down()
+#define HANDLER_BEGIN(methodname, filename) DbgPrint(L">  %s %s", methodname, filename.c_str()); auto level = DbgPrint.Down()
 #define DBG_RETURN(ret, dbgprint) if (true) { DbgPrint dbgprint; return ret; } else
 #define DBG_ASSERT_RETURN(cond, ret, dbgprint) if (!(cond)) DBG_RETURN(ret, dbgprint); else

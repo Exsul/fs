@@ -24,6 +24,8 @@ public:
     MOUNT_ERROR = -5, /* Can't assign a drive letter or mount point */
     MOUNT_POINT_ERROR = -6, /* Mount point is invalid */
   };
+
+  ~dokan();
 };
 
 #endif

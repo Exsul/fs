@@ -40,3 +40,13 @@ dokan::DOKAN_STATUS dokan::StartDokan()
   int status = DokanMain(opt, oper);
   return convert<DOKAN_STATUS>(status);
 }
+
+dokan::~dokan()
+{
+  if (!inited)
+    return;
+  delete reinterpret_cast<dokan_proxy *>(opt->GlobalContext);
+  delete[] opt->MountPoint;
+  delete opt;
+  delete oper;
+}
