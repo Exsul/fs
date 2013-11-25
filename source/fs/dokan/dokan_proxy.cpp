@@ -7,13 +7,6 @@ vfs &dokan_proxy::Get()
   return *worker;
 }
 
-int dokan_proxy::Cleanup(std::wstring name, DOKAN_FILE_INFO &dokan_info)
-{
-  DbgPrint(L">Cleanup: %s", name.c_str());
-  dokan_info.Context = 0;
-  return 0;
-}
-
 int dokan_proxy::CloseFile(std::wstring name, DOKAN_FILE_INFO &dokan_info)
 {
   DbgPrint(L">CloseFile: %s", name.c_str());

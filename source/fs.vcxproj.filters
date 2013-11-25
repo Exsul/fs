@@ -48,6 +48,9 @@
     <ClCompile Include="fs\dokan\methods\OpenDirectory.cpp">
       <Filter>source\dokan\methods</Filter>
     </ClCompile>
+    <ClCompile Include="fs\dokan\methods\Cleanup.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fs\factory.h">
