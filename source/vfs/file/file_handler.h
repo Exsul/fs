@@ -15,6 +15,8 @@ public:
   virtual dword Length() const = 0;
   virtual std::vector<ub> Read(word amount) = 0;
   virtual word Write(std::vector<ub> data) = 0;
+  virtual bool Lock() = 0;
+  virtual bool Unlock() = 0;
 
   const std::wstring &Name() const;
 

@@ -81,3 +81,15 @@ void cached_file_handler_impl::Create(const wstring name)
   r.rights.push_back(access_rights::WRITE);
   cached_file_handler_impl(name, r);
 }
+
+#include <Windows.h>
+
+bool cached_file_handler_impl::Lock()
+{
+  return false;
+}
+
+bool cached_file_handler_impl::Unlock()
+{
+  return false;
+}

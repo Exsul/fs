@@ -8,7 +8,7 @@ cached_file_handler_impl &cached_file_handler::Impl() const
     ar.rights.push_back(access_rights::WRITE);
 
   if (!impl)
-    impl = NEW cached_file_handler_impl(filename, ar);
+    impl = NEW cached_file_handler_impl(cache_filename_location, ar);
   return *impl;
 }
 
@@ -62,4 +62,14 @@ std::vector<ub> cached_file_handler::Read(word amount)
 word cached_file_handler::Write(std::vector<ub> data)
 {
   return 0;
+}
+
+bool cached_file_handler::Lock()
+{
+  return Impl().Lock();
+}
+
+bool cached_file_handler::Unlock()
+{
+  return Impl().Unlock();
 }

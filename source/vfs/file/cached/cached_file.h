@@ -12,4 +12,7 @@ public:
   virtual vector<byte> Read(word amount, dword offset = 0);
   virtual word Write(vector<byte> data, dword offset = 0);
   virtual void Flush();
+
+  virtual bool Lock(const bword offset, const bword length);
+  virtual bool Unlock(const bword offset, const bword length);
 };

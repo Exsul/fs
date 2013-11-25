@@ -18,6 +18,9 @@ struct cached_file_handler : public file_handler
   virtual dword Length() const;
   virtual std::vector<ub> Read(word amount);
   virtual word Write(std::vector<ub> data);
+
+  virtual bool Lock();
+  virtual bool Unlock();
 private:
   cached_file_handler_impl &Impl() const;
   mutable cached_file_handler_impl *impl;

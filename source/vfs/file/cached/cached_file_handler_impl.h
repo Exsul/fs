@@ -20,4 +20,7 @@ public:
 
   std::vector<ub> Read(const word amount);
   word Write(const std::vector<ub> &data);
+
+  bool Lock();
+  bool Unlock();
 };

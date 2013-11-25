@@ -29,3 +29,13 @@ word cached_file::Write(vector<byte> data, dword offset)
 void cached_file::Flush()
 {
 }
+
+bool cached_file::Lock(const bword offset, const bword length)
+{
+  return handler.Lock();
+}
+
+bool cached_file::Unlock(const bword offset, const bword length)
+{
+  return handler.Unlock();
+}
