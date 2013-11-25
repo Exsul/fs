@@ -2,7 +2,8 @@
 
 int dokan_proxy::CreateDirectory(std::wstring filename, DOKAN_FILE_INFO &dokan_info)
 {
-  todo(Create directory);
   HANDLER_BEGIN(L"CreateDirectory", filename);
-  Get().CreateDirectory(filename);
+  dokan_info.IsDirectory = true;
+  dokan_info.Context = reinterpret_cast<ULONG64>(Get().CreateDirectory(filename));
+  return 0;
 }
