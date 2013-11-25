@@ -13,6 +13,9 @@
     <Filter Include="source\dokan\methods">
       <UniqueIdentifier>{8062b5ca-c745-4708-b251-6d420a3a920e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\dokan\methods\utils">
+      <UniqueIdentifier>{15d2dcb3-2fb8-4f3e-a353-897a42988b09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fs\main.cpp">
@@ -36,9 +39,6 @@
     <ClCompile Include="fs\dokan\methods\CreateFile.cpp">
       <Filter>source\dokan\methods</Filter>
     </ClCompile>
-    <ClCompile Include="fs\dokan\methods\methods_utils.cpp">
-      <Filter>source\dokan\methods</Filter>
-    </ClCompile>
     <ClCompile Include="fs\dokan\methods\FindFiles.cpp">
       <Filter>source\dokan\methods</Filter>
     </ClCompile>
@@ -52,6 +52,15 @@
       <Filter>source\dokan\methods</Filter>
     </ClCompile>
     <ClCompile Include="fs\dokan\methods\CreateDirectory.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\ReadFile.cpp">
+      <Filter>source\dokan\methods</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\methods_utils.cpp">
+      <Filter>source\dokan\methods\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="fs\dokan\methods\WriteFile.cpp">
       <Filter>source\dokan\methods</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,11 +86,11 @@
     <ClInclude Include="fs\dokan\dokan_proxy.h">
       <Filter>source\dokan</Filter>
     </ClInclude>
-    <ClInclude Include="fs\dokan\methods\methods_utils.h">
-      <Filter>source\dokan\methods</Filter>
-    </ClInclude>
     <ClInclude Include="fs\win_undef_names.h">
       <Filter>source\dokan</Filter>
+    </ClInclude>
+    <ClInclude Include="fs\dokan\methods\methods_utils.h">
+      <Filter>source\dokan\methods\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

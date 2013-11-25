@@ -110,6 +110,8 @@
     <ClCompile Include="fs\dokan\methods\GetVolumeInformation.cpp" />
     <ClCompile Include="fs\dokan\methods\methods_utils.cpp" />
     <ClCompile Include="fs\dokan\methods\OpenDirectory.cpp" />
+    <ClCompile Include="fs\dokan\methods\ReadFile.cpp" />
+    <ClCompile Include="fs\dokan\methods\WriteFile.cpp" />
     <ClCompile Include="fs\entry.cpp" />
     <ClCompile Include="fs\entry_init.cpp" />
     <ClCompile Include="fs\main.cpp" />

@@ -35,10 +35,10 @@ int DOKAN_CALLBACK _OpenDirectory (
 }
 
 int (DOKAN_CALLBACK _CreateDirectory) (
-  LPCWSTR,        // FileName
-  PDOKAN_FILE_INFO)
+  LPCWSTR filename,        // FileName
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).CreateDirectory(filename, *info);
 }
 
 // When FileInfo->DeleteOnClose is true, you must delete the file in Cleanup.
@@ -57,33 +57,39 @@ int (DOKAN_CALLBACK _CloseFile) (
 }
 
 int (DOKAN_CALLBACK _ReadFile) (
-  LPCWSTR,  // FileName
-  LPVOID,   // Buffer
-  DWORD,    // NumberOfBytesToRead
-  LPDWORD,  // NumberOfBytesRead
-  LONGLONG, // Offset
-  PDOKAN_FILE_INFO)
+  LPCWSTR file,  // FileName
+  LPVOID out,   // Buffer
+  DWORD to_read,    // NumberOfBytesToRead
+  LPDWORD _readed,  // NumberOfBytesRead
+  LONGLONG offset, // Offset
+  PDOKAN_FILE_INFO info )
 {
-  return ERROR_NOT_READY * -1;
+  int readed = 0;
+  int ret = -1 * ExtractProxy(info).ReadFile(file, out, to_read, readed, offset, *info);
+  *_readed = readed;
+  return ret;
 }
 
 int (DOKAN_CALLBACK _WriteFile) (
-  LPCWSTR,  // FileName
-  LPCVOID,  // Buffer
-  DWORD,    // NumberOfBytesToWrite
-  LPDWORD,  // NumberOfBytesWritten
-  LONGLONG, // Offset
-  PDOKAN_FILE_INFO)
+  LPCWSTR file,  // FileName
+  LPCVOID out,  // Buffer
+  DWORD to_write,    // NumberOfBytesToWrite
+  LPDWORD _writed,  // NumberOfBytesWritten
+  LONGLONG offset, // Offset
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  int writed = 0;
+  int ret = -1 * ExtractProxy(info).WriteFile(file, out, to_write, writed, offset, *info);
+  *_writed = writed;
+  return ret;
 }
 
 
 int (DOKAN_CALLBACK _FlushFileBuffers) (
-  LPCWSTR, // FileName
-  PDOKAN_FILE_INFO)
+  LPCWSTR file, // FileName
+  PDOKAN_FILE_INFO info )
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).FlushFileBuffers(file, *info);
 }
 
 
@@ -106,32 +112,32 @@ int (DOKAN_CALLBACK _FindFiles) (
 
 // You should implement either FindFiles or FindFilesWithPattern
 int (DOKAN_CALLBACK _FindFilesWithPattern) (
-  LPCWSTR,      // PathName
-  LPCWSTR,      // SearchPattern
-  PFillFindData,    // call this function with PWIN32_FIND_DATAW
-  PDOKAN_FILE_INFO)
+  LPCWSTR path,      // PathName
+  LPCWSTR pattern,      // SearchPattern
+  PFillFindData callback,    // call this function with PWIN32_FIND_DATAW
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).FindFilesWithPattern(path, pattern, callback, *info);
 }
 
 
 int (DOKAN_CALLBACK _SetFileAttributes) (
-  LPCWSTR, // FileName
-  DWORD,   // FileAttributes
-  PDOKAN_FILE_INFO)
+  LPCWSTR name, // FileName
+  DWORD attr,   // FileAttributes
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).SetFileAttributes(name, attr, *info);
 }
 
 
 int (DOKAN_CALLBACK _SetFileTime) (
-  LPCWSTR,    // FileName
-  CONST FILETIME*, // CreationTime
-  CONST FILETIME*, // LastAccessTime
-  CONST FILETIME*, // LastWriteTime
-  PDOKAN_FILE_INFO)
+  LPCWSTR file,    // FileName
+  CONST FILETIME* create, // CreationTime
+  CONST FILETIME* access, // LastAccessTime
+  CONST FILETIME* write, // LastWriteTime
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).SetFileTime(file, *create, *access, *write, *info);
 }
 
 
@@ -144,65 +150,65 @@ int (DOKAN_CALLBACK _SetFileTime) (
 // FileInfo->DeleteOnClose set TRUE and you have to delete the
 // file in Close.
 int (DOKAN_CALLBACK _DeleteFile) (
-  LPCWSTR, // FileName
-  PDOKAN_FILE_INFO)
+  LPCWSTR file, // FileName
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).DeleteFile(file, *info);
 }
 
 int (DOKAN_CALLBACK _DeleteDirectory) ( 
-  LPCWSTR, // FileName
-  PDOKAN_FILE_INFO)
+  LPCWSTR file, // FileName
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).DeleteDirectory(file, *info);
 }
 
 
 int (DOKAN_CALLBACK _MoveFile) (
-  LPCWSTR, // ExistingFileName
-  LPCWSTR, // NewFileName
-  BOOL,  // ReplaceExisiting
-  PDOKAN_FILE_INFO)
+  LPCWSTR prev, // ExistingFileName
+  LPCWSTR next, // NewFileName
+  BOOL repl,  // ReplaceExisiting
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).MoveFile(prev, next, repl ? true : false, *info);
 }
 
 
 int (DOKAN_CALLBACK _SetEndOfFile) (
-  LPCWSTR,  // FileName
-  LONGLONG, // Length
-  PDOKAN_FILE_INFO)
+  LPCWSTR file,  // FileName
+  LONGLONG length, // Length
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).SetEndOfFile(file, length, *info);
 }
 
 
 int (DOKAN_CALLBACK _SetAllocationSize) (
-  LPCWSTR,  // FileName
-  LONGLONG, // Length
-  PDOKAN_FILE_INFO)
+  LPCWSTR file,  // FileName
+  LONGLONG length, // Length
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).SetAllocationSize(file, length, *info);
 }
 
 
 int (DOKAN_CALLBACK _LockFile) (
-  LPCWSTR, // FileName
-  LONGLONG, // ByteOffset
-  LONGLONG, // Length
-  PDOKAN_FILE_INFO)
+  LPCWSTR file, // FileName
+  LONGLONG offset, // ByteOffset
+  LONGLONG length, // Length
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).LockFile(file, offset, length, *info);
 }
 
 
 int (DOKAN_CALLBACK _UnlockFile) (
-  LPCWSTR, // FileName
-  LONGLONG,// ByteOffset
-  LONGLONG,// Length
-  PDOKAN_FILE_INFO)
+  LPCWSTR file, // FileName
+  LONGLONG offset,// ByteOffset
+  LONGLONG length,// Length
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).UnlockFile(file, offset, length, *info);
 }
 
 
@@ -213,12 +219,12 @@ int (DOKAN_CALLBACK _UnlockFile) (
 
 // see Win32 API GetDiskFreeSpaceEx
 int (DOKAN_CALLBACK _GetDiskFreeSpace) (
-  PULONGLONG, // FreeBytesAvailable
-  PULONGLONG, // TotalNumberOfBytes
-  PULONGLONG, // TotalNumberOfFreeBytes
-  PDOKAN_FILE_INFO)
+  PULONGLONG avaib, // FreeBytesAvailable
+  PULONGLONG total, // TotalNumberOfBytes
+  PULONGLONG free, // TotalNumberOfFreeBytes
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).GetDiskFreeSpace(*avaib, *total, *free, *info);
 }
 
 
@@ -253,30 +259,30 @@ int (DOKAN_CALLBACK _GetVolumeInformation) (
 
 
 int (DOKAN_CALLBACK _Unmount) (
-  PDOKAN_FILE_INFO)
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).Unmount(*info);
 }
 
 
 // Suported since 0.6.0. You must specify the version at DOKAN_OPTIONS.Version.
 int (DOKAN_CALLBACK _GetFileSecurity) (
-  LPCWSTR, // FileName
-  PSECURITY_INFORMATION, // A pointer to SECURITY_INFORMATION value being requested
-  PSECURITY_DESCRIPTOR, // A pointer to SECURITY_DESCRIPTOR buffer to be filled
-  ULONG, // length of Security descriptor buffer
-  PULONG, // LengthNeeded
-  PDOKAN_FILE_INFO)
+  LPCWSTR file, // FileName
+  PSECURITY_INFORMATION sec, // A pointer to SECURITY_INFORMATION value being requested
+  PSECURITY_DESCRIPTOR desk, // A pointer to SECURITY_DESCRIPTOR buffer to be filled
+  ULONG length, // length of Security descriptor buffer
+  PULONG need, // LengthNeeded
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).GetFileSecurity(file, sec, desk, length, *need, *info);
 }
 
 int (DOKAN_CALLBACK _SetFileSecurity) (
-  LPCWSTR, // FileName
-  PSECURITY_INFORMATION,
-  PSECURITY_DESCRIPTOR, // SecurityDescriptor
-  ULONG, // SecurityDescriptor length
-  PDOKAN_FILE_INFO)
+  LPCWSTR file, // FileName
+  PSECURITY_INFORMATION sec,
+  PSECURITY_DESCRIPTOR desc, // SecurityDescriptor
+  ULONG length, // SecurityDescriptor length
+  PDOKAN_FILE_INFO info)
 {
-  return ERROR_NOT_READY * -1;
+  return -1 * ExtractProxy(info).SetFileSecurity(file, sec, desc, length, *info);
 }
