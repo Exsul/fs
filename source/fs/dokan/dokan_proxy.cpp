@@ -7,3 +7,10 @@ vfs &dokan_proxy::Get()
   return *worker;
 }
 
+dokan_proxy::~dokan_proxy()
+{
+  if (worker)
+    delete worker;
+}
+
+

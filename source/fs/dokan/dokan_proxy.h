@@ -4,7 +4,7 @@
 class vfs;
 class dokan_proxy
 {
-  vfs *worker;
+  vfs *worker = nullptr;
 
   vfs &Get();
 public:
@@ -33,4 +33,6 @@ public:
   int Unmount(DOKAN_FILE_INFO &dokan_info);
   int GetFileSecurity(std::wstring name, PSECURITY_INFORMATION, PSECURITY_DESCRIPTOR, int, unsigned long &, DOKAN_FILE_INFO &dokan_info);
   int SetFileSecurity(std::wstring name, PSECURITY_INFORMATION, PSECURITY_DESCRIPTOR, int, DOKAN_FILE_INFO &dokan_info);
+
+  ~dokan_proxy();
 };

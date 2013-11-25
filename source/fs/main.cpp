@@ -1,20 +1,6 @@
 #include "dokan\dokan.h"
 
-
-//static WCHAR RootDirectory[MAX_PATH] = L"C:";
 static WCHAR MountPoint[MAX_PATH] = L"M:";
-
-//void InitMethods( PDOKAN_OPERATIONS );
-
-//static factory *handlers;
-
-struct t
-{
-  t()
-  {
-    throw_message("Hello");
-  }
-};
 
 void main()
 {
