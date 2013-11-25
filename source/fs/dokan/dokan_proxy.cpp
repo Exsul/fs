@@ -9,13 +9,12 @@ vfs &dokan_proxy::Get()
 
 int dokan_proxy::CloseFile(std::wstring name, DOKAN_FILE_INFO &dokan_info)
 {
-  DbgPrint(L">CloseFile: %s", name.c_str());
-  dokan_info.Context = 0;
+  HANDLER_BEGIN(L"CloseFile", name);
   return 0;
 }
 
 int dokan_proxy::GetFileInformation(std::wstring name, LPBY_HANDLE_FILE_INFORMATION buffer, DOKAN_FILE_INFO &dokan_info)
 {
-  DbgPrint(L">GetFileInformation: %s", name.c_str());
+  HANDLER_BEGIN(L"GetFileInformation", name);
   return 0;
 }

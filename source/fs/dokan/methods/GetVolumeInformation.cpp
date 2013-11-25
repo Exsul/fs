@@ -2,7 +2,8 @@
 
 int dokan_proxy::GetVolumeInformation(std::wstring &name, word &serial, word &max_filename_length, word &flags, std::wstring &file_system, DOKAN_FILE_INFO &dokan_info)
 {
-  DbgPrint(L">GetVolumeInformation");
+  HANDLER_BEGIN(L"GetVolumeInformation", name);
+
   name = L"PROTOTYPE";
   file_system = L"PROTOTYPE";
   serial = 30;
