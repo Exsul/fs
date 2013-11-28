@@ -6,6 +6,8 @@ int dokan_proxy::CreateFile(std::wstring filename, int access, int share, int po
 
   DBG_ASSERT_RETURN(!dokan_info.Context, ERROR_BAD_COMMAND, (L"[ERROR] Context is not null"));
 
+  DbgPrint(L"access right 0x%.08X", access);
+
   access_rights ar(access, typeid(access_rights::FILE));
   create_disposition cd = convert<create_disposition>(share);
   attributes at = convert<attributes>(flags);

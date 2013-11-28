@@ -89,7 +89,7 @@ struct access_rights
 private:
   template<typename ONE_OF_THESE_ENUM_TYPES>
   std::vector<ONE_OF_THESE_ENUM_TYPES> &Container();
-
+public:
   template<typename ONE_OF_THESE_ENUM_TYPES>
   const std::vector<ONE_OF_THESE_ENUM_TYPES> &Container() const;
 };

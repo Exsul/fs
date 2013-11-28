@@ -14,8 +14,8 @@ public:
   int CreateDirectory(std::wstring filename, DOKAN_FILE_INFO &dokan_info);
   int Cleanup(std::wstring filename, DOKAN_FILE_INFO &dokan_info);
   int CloseFile(std::wstring filename, DOKAN_FILE_INFO &dokan_info);
-  int ReadFile(std::wstring filename, void *buf, int to_read, int &readed, __int64 offset, DOKAN_FILE_INFO &dokan_info);
-  int WriteFile(std::wstring filename, const void *buf, int to_write, int &written, __int64 offset, DOKAN_FILE_INFO &dokan_info);
+  int ReadFile(std::wstring filename, ub *buf, int to_read, int &readed, __int64 offset, DOKAN_FILE_INFO &dokan_info);
+  int WriteFile(std::wstring filename, const ub *buf, int to_write, int &written, __int64 offset, DOKAN_FILE_INFO &dokan_info);
   int FlushFileBuffers(std::wstring filename, DOKAN_FILE_INFO &dokan_info);
   int GetFileInformation(std::wstring filename, BY_HANDLE_FILE_INFORMATION &buffer, DOKAN_FILE_INFO &dokan_info);
   int FindFiles(std::wstring filename, PFillFindData, DOKAN_FILE_INFO &dokan_info);

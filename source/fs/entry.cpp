@@ -65,7 +65,7 @@ int (DOKAN_CALLBACK _ReadFile) (
   PDOKAN_FILE_INFO info )
 {
   int readed = 0;
-  int ret = -1 * ExtractProxy(info).ReadFile(file, out, to_read, readed, offset, *info);
+  int ret = -1 * ExtractProxy(info).ReadFile(file, (ub *)out, to_read, readed, offset, *info);
   *_readed = readed;
   return ret;
 }
@@ -79,7 +79,7 @@ int (DOKAN_CALLBACK _WriteFile) (
   PDOKAN_FILE_INFO info)
 {
   int writed = 0;
-  int ret = -1 * ExtractProxy(info).WriteFile(file, out, to_write, writed, offset, *info);
+  int ret = -1 * ExtractProxy(info).WriteFile(file, (const ub *)out, to_write, writed, offset, *info);
   *_writed = writed;
   return ret;
 }

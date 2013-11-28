@@ -21,7 +21,8 @@ void dokan::InitDokan( std::wstring mount_point )
   opt->GlobalContext = reinterpret_cast<ULONG64>(NEW MEMLEAK dokan_proxy());
   opt->ThreadCount = 1;
   opt->Version = DOKAN_VERSION;
-  opt->Options |= DOKAN_OPTION_DEBUG | DOKAN_OPTION_KEEP_ALIVE;
+  //opt->Options |= DOKAN_OPTION_DEBUG;
+  opt->Options |= DOKAN_OPTION_KEEP_ALIVE;
 
 
   auto CopyMountPoint = [&]( const std::wstring &source)

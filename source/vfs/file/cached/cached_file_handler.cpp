@@ -61,7 +61,7 @@ std::vector<ub> cached_file_handler::Read(word amount)
 
 word cached_file_handler::Write(std::vector<ub> data)
 {
-  return 0;
+  return Impl().Write(data);
 }
 
 bool cached_file_handler::Lock()
