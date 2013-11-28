@@ -32,7 +32,7 @@ dword cached_file_handler_impl::Length() const
 {
   if (length == WORD_MAX)
   {
-    throw_assert(!errno);
+    errno = 0;
     fseek(F, 0, SEEK_END);
     int _length = ftell(F);
     fseek(F, offset, SEEK_SET);

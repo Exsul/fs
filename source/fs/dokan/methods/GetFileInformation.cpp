@@ -27,7 +27,7 @@ int dokan_proxy::GetFileInformation(std::wstring name, BY_HANDLE_FILE_INFORMATIO
   };
 
   buffer.nFileIndexLow = XOR32(name);
-  buffer.nFileSizeHigh = CRC32(name);
+  buffer.nFileIndexHigh = CRC32(name);
 
   if (dokan_info.IsDirectory)
   {
@@ -40,7 +40,8 @@ int dokan_proxy::GetFileInformation(std::wstring name, BY_HANDLE_FILE_INFORMATIO
   {
     auto *h = DeserializeContext<file_handler>(dokan_info);
     auto length = h->Length();
-    DbgPrint(L"TODO: Write file length");
+    buffer.nFileSizeLow = length & MAXVALUEBYTYPE(DWORD);
+    buffer.nFileSizeHigh = 0;
   }
   return ERROR_SUCCESS;
 }
