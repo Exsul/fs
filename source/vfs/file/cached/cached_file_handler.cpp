@@ -5,7 +5,7 @@ cached_file_handler_impl &cached_file_handler::Impl() const
 {
   DEPRECATED
     access_rights ar;
-    ar.rights.push_back(access_rights::WRITE);
+    ar += access_rights::WRITE;
 
   if (!impl)
     impl = NEW cached_file_handler_impl(cache_filename_location, ar);
