@@ -1,6 +1,7 @@
 #include "../stdafx.h"
 #include <functional>
 #include <vector>
+#include <typeindex>
 
 struct access_rights
 {
@@ -83,7 +84,7 @@ struct access_rights
 
   explicit operator word() const;
 
-  access_rights(const word &, type_info);
+  access_rights(const word &, std::type_index);
   access_rights();
 private:
   template<typename ONE_OF_THESE_ENUM_TYPES>

@@ -127,7 +127,12 @@ namespace
   }
 };
 
-access_rights::access_rights(const word &a, type_info ti)
+access_rights::access_rights()
+{
+
+}
+
+access_rights::access_rights(const word &a, type_index ti)
 {
   if (ti == typeid(access_rights::DIRECTORY))
     ParseDir(*this, a);
