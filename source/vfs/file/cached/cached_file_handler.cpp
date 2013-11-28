@@ -56,7 +56,7 @@ dword cached_file_handler::Length() const
 
 std::vector<ub> cached_file_handler::Read(word amount)
 {
-  return vector<ub>();
+  return Impl().Read(amount);
 }
 
 word cached_file_handler::Write(std::vector<ub> data)

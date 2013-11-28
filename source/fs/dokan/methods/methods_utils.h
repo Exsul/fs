@@ -50,3 +50,7 @@ t *DeserializeContext(const DOKAN_FILE_INFO &info)
     throw_assert(info.Context);
   return reinterpret_cast<t *>(info.Context);
 }
+
+#define STANDART_FILE_CHECKS() \
+  DBG_ASSERT_RETURN(dokan_info.Context, ERROR_INVALID_FUNCTION, (L"[ERROR] Delete file zero context")); \
+  DBG_ASSERT_RETURN(!dokan_info.IsDirectory, ERROR_INVALID_FUNCTION, (L"[ERROR] Write file on directory called"))
