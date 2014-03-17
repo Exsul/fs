@@ -21,9 +21,6 @@
     <ClCompile Include="fs\main.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="fs\sqlite3.c">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="fs\entry.cpp">
       <Filter>source\entry</Filter>
     </ClCompile>
@@ -114,15 +111,13 @@
     <ClCompile Include="fs\dokan\methods\GetFileInformation.cpp">
       <Filter>source\dokan\methods</Filter>
     </ClCompile>
+    <ClCompile Include="fs\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fs\factory.h">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="fs\header.h">
-      <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="fs\sqlite3.h">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="fs\entry.h">
@@ -143,5 +138,6 @@
     <ClInclude Include="fs\dokan\methods\methods_utils.h">
       <Filter>source\dokan\methods\utils</Filter>
     </ClInclude>
+    <ClInclude Include="fs\sqlite3.h" />
   </ItemGroup>
 </Project>
