@@ -1,30 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="file">
-      <UniqueIdentifier>{2feddff4-1096-40b3-a131-16f80f2d8813}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="directory">
-      <UniqueIdentifier>{0d6dc2a2-1906-4843-b4e6-946c4c78095b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="file\src">
-      <UniqueIdentifier>{53d84d43-90f5-4e70-a71f-66714c838d90}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="file\cached_file">
-      <UniqueIdentifier>{a07f29a9-0b9a-4678-a257-22394fa289aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="file\cached_file\src">
-      <UniqueIdentifier>{4610adc2-8540-46b9-b296-12f0bf2ff54b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="directory\src">
-      <UniqueIdentifier>{3cc58f84-cdf5-4ac8-bd46-1aac4c447bbd}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="vfs\header.h" />
+    <ClInclude Include="vfs\internal.h" />
+    <ClInclude Include="vfs\std_importer.h" />
+    <ClInclude Include="vfs\stdafx.h" />
+    <ClInclude Include="vfs\vfs.h" />
     <ClInclude Include="vfs\directory\directory.h">
       <Filter>directory</Filter>
     </ClInclude>
     <ClInclude Include="vfs\directory\directory_handler.h">
+      <Filter>directory</Filter>
+    </ClInclude>
+    <ClInclude Include="vfs\directory\file_find_data.h">
       <Filter>directory</Filter>
     </ClInclude>
     <ClInclude Include="vfs\file\access_rights.h">
@@ -48,50 +36,53 @@
     <ClInclude Include="vfs\file\share_mode.h">
       <Filter>file</Filter>
     </ClInclude>
-    <ClInclude Include="vfs\header.h" />
-    <ClInclude Include="vfs\std_importer.h" />
-    <ClInclude Include="vfs\stdafx.h" />
-    <ClInclude Include="vfs\vfs.h" />
     <ClInclude Include="vfs\file\cached\cached_file.h">
-      <Filter>file\cached_file</Filter>
+      <Filter>file\cached</Filter>
     </ClInclude>
     <ClInclude Include="vfs\file\cached\cached_file_handler.h">
-      <Filter>file\cached_file</Filter>
+      <Filter>file\cached</Filter>
     </ClInclude>
     <ClInclude Include="vfs\file\cached\cached_file_handler_impl.h">
-      <Filter>file\cached_file</Filter>
+      <Filter>file\cached</Filter>
     </ClInclude>
-    <ClInclude Include="vfs\directory\file_find_data.h">
-      <Filter>directory</Filter>
-    </ClInclude>
-    <ClInclude Include="vfs\internal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vfs\vfs.cpp" />
-    <ClCompile Include="vfs\file\file.cpp">
-      <Filter>file\src</Filter>
-    </ClCompile>
-    <ClCompile Include="vfs\file\cached\cached_file.cpp">
-      <Filter>file\cached_file\src</Filter>
-    </ClCompile>
-    <ClCompile Include="vfs\file\cached\cached_file_handler.cpp">
-      <Filter>file\cached_file\src</Filter>
-    </ClCompile>
-    <ClCompile Include="vfs\file\cached\cached_file_handler_impl.cpp">
-      <Filter>file\cached_file\src</Filter>
-    </ClCompile>
-    <ClCompile Include="vfs\file\access_rights.cpp">
-      <Filter>file\src</Filter>
-    </ClCompile>
+    <ClCompile Include="vfs\vfs_raw_win.cpp" />
     <ClCompile Include="vfs\directory\directory.cpp">
-      <Filter>directory\src</Filter>
+      <Filter>directory</Filter>
     </ClCompile>
     <ClCompile Include="vfs\directory\directory_hander.cpp">
-      <Filter>directory\src</Filter>
+      <Filter>directory</Filter>
+    </ClCompile>
+    <ClCompile Include="vfs\file\access_rights.cpp">
+      <Filter>file</Filter>
     </ClCompile>
     <ClCompile Include="vfs\file\attributes.cpp">
-      <Filter>file\src</Filter>
+      <Filter>file</Filter>
     </ClCompile>
-    <ClCompile Include="vfs\vfs_raw_win.cpp" />
+    <ClCompile Include="vfs\file\file.cpp">
+      <Filter>file</Filter>
+    </ClCompile>
+    <ClCompile Include="vfs\file\cached\cached_file.cpp">
+      <Filter>file\cached</Filter>
+    </ClCompile>
+    <ClCompile Include="vfs\file\cached\cached_file_handler.cpp">
+      <Filter>file\cached</Filter>
+    </ClCompile>
+    <ClCompile Include="vfs\file\cached\cached_file_handler_impl.cpp">
+      <Filter>file\cached</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="file">
+      <UniqueIdentifier>{d556bdb0-ab5c-4a75-836d-d9f9117db54a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="directory">
+      <UniqueIdentifier>{8f3e95cb-b510-4a1c-a082-4453b09c6219}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="file\cached">
+      <UniqueIdentifier>{105a87f3-d910-48bf-abc8-7986fbf9a5fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

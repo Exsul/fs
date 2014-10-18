@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -11,23 +11,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1175597B-B892-4D45-AC22-43CB069DC1B3}</ProjectGuid>
+    <ProjectGuid>{3BD9D65C-30B4-4012-8C73-2E01A130ACB4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>chatclient</RootNamespace>
+    <RootNamespace>fs</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>CTP_Nov2013</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>CTP_Nov2013</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -41,25 +41,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)..\build\$(SolutionName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)..\intermediate\$(SolutionName)\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>$(SolutionName)_$(ProjectName)_$(Configuration)</TargetName>
-    <IncludePath>C:\Program Files (x86)\Dokan\DokanLibrary;$(ProgramFiles)\Windows Kits\8.1\Include\um;$(ProgramFiles)\Windows Kits\8.1\Include\shared;$(SolutionDir)/AX/source;$(VC_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files (x86)\Dokan\DokanLibrary;$(ProgramFiles)\Windows Kits\8.1\lib\winv6.3\um\x86;$(OutDir);$(VC_LibraryPath_x86);</LibraryPath>
-    <SourcePath>$(SolutionDir)/AX/source;$(VC_SourcePath);</SourcePath>
-    <ExecutablePath>$(ProgramFiles)\Windows Kits\8.1\bin\x86;$(VC_ExecutablePath_x86);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
-    <ExcludePath>$(ProgramFiles)\Windows Kits\8.1\Include\um;$(ProgramFiles)\Windows Kits\8.1\Include\shared;$(VC_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x86);</ExcludePath>
+    <OutDir>$(SolutionDir)..\build\$(SolutionName)\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\inter\$(SolutionName)\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>C:\boost;../AX/source;C:\Program Files (x86)\Dokan\DokanLibrary;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>C:\boost;$(VC_LibraryPath_x86);C:\Program Files (x86)\Dokan\DokanLibrary;$(WindowsSDK_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)..\build\$(SolutionName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)..\intermediate\$(SolutionName)\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>$(SolutionName)_$(ProjectName)_$(Configuration)</TargetName>
-    <IncludePath>C:\Program Files (x86)\Dokan\DokanLibrary;$(ProgramFiles)\Windows Kits\8.1\Include\um;$(ProgramFiles)\Windows Kits\8.0\Include\shared;$(SolutionDir)/AX/source;$(VC_IncludePath);</IncludePath>
-    <LibraryPath>C:\Program Files (x86)\Dokan\DokanLibrary;$(ProgramFiles)\Windows Kits\8.1\lib\winv6.3\um\x86;$(OutDir);$(VC_LibraryPath_x86);</LibraryPath>
-    <SourcePath>$(SolutionDir)/AX/source;$(VC_SourcePath);</SourcePath>
-    <ExecutablePath>$(ProgramFiles)\Windows Kits\8.1\bin\x86;$(VC_ExecutablePath_x86);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
-    <ExcludePath>$(ProgramFiles)\Windows Kits\8.1\Include\um;$(ProgramFiles)\Windows Kits\8.1\Include\shared;$(VC_IncludePath);$(MSBuild_ExecutablePath);$(VC_LibraryPath_x86);</ExcludePath>
+    <OutDir>$(SolutionDir)..\build\$(SolutionName)\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\inter\$(SolutionName)\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_$(Configuration)</TargetName>
+    <IncludePath>C:\boost;../AX/source;C:\Program Files (x86)\Dokan\DokanLibrary;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>C:\boost;$(VC_LibraryPath_x86);C:\Program Files (x86)\Dokan\DokanLibrary;$(WindowsSDK_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -67,16 +61,12 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>SQLITE_THREADSAFE;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <ShowIncludes>false</ShowIncludes>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalOptions>dokan.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -97,11 +87,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ProjectReference Include="vfs.vcxproj">
-      <Project>{90902c8d-2f56-4ed6-aa53-67b20534ac2a}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fs\dokan\dokan.cpp" />
     <ClCompile Include="fs\dokan\dokan_proxy.cpp" />
@@ -137,6 +122,7 @@
     <ClCompile Include="fs\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ax.h" />
     <ClInclude Include="fs\dokan\dokan.h" />
     <ClInclude Include="fs\dokan\dokan_cpp_port.h" />
     <ClInclude Include="fs\dokan\dokan_proxy.h" />
@@ -146,6 +132,14 @@
     <ClInclude Include="fs\header.h" />
     <ClInclude Include="fs\sqlite3.h" />
     <ClInclude Include="fs\win_undef_names.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AX\source\AX.vcxproj">
+      <Project>{792c27e3-863b-434c-a47a-f5f0515bfb20}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vfs.vcxproj">
+      <Project>{f2d00533-5826-495d-843a-d13c507dc155}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

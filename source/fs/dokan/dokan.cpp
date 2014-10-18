@@ -1,6 +1,8 @@
 #include "dokan.h"
 #include "dokan_proxy.h"
 
+#pragma comment(lib, "dokan.lib")
+
 PDOKAN_OPERATIONS dokan::oper = nullptr;
 PDOKAN_OPTIONS dokan::opt = nullptr;
 bool dokan::inited = false;

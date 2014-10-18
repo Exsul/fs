@@ -16,7 +16,7 @@ public:
   virtual bool Lock( const bword offset, const bword length ) = 0;
   virtual bool Unlock( const bword offset, const bword length ) = 0;
 
-  ~file();
+  virtual ~file() {};
 
 /*/
   int GetFileInformation(std::wstring filename, LPBY_HANDLE_FILE_INFORMATION buffer, DOKAN_FILE_INFO &dokan_info);

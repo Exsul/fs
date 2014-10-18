@@ -18,10 +18,10 @@ void dbg_print::operator()(LPCWSTR format, ...)
   vswprintf_s(buffer, sizeof(buffer) / sizeof(WCHAR), format, argp);
   va_end(argp);
 
-  auto ShowDepth = []( word depth )
+  auto ShowDepth = []( word _depth )
   {
     wstring ret;
-    for (word i = 0; i < depth; ++i)
+    for (word i = 0; i < _depth; ++i)
       ret = ConCat(ret, L"   ");
     return ret;
   };
